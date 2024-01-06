@@ -9,7 +9,9 @@ export default function Home() {
         <title>Home Anjir</title>
       </Helmet>
       <NavbarComponent />
-      <div>Home</div>
+      <section>
+        
+      </section>
       <FooterComponent/>
     </section>
   )
