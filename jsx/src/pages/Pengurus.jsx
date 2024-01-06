@@ -2,14 +2,14 @@ import { Helmet } from 'react-helmet-async'
 import NavbarComponent from '../components/NavbarComponent'
 import FooterComponent from '../components/FooterComponent'
 
-export default function Home() {
+export default function Pengurus() {
   return (
     <section>
       <Helmet>
-        <title>Home Anjir</title>
+        <title>Pengurus Anjir</title>
       </Helmet>
       <NavbarComponent />
-      <div>Home</div>
+      <div>Pengurus</div>
       <FooterComponent/>
     </section>
   )

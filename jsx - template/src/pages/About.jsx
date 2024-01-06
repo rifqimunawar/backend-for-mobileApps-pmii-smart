@@ -1,16 +1,16 @@
 import { Helmet } from 'react-helmet-async'
 import NavbarComponent from '../components/NavbarComponent'
-import FooterComponent from '../components/FooterComponent'
 
-export default function Home() {
+const About = () => {
   return (
     <section>
       <Helmet>
-        <title>Home Anjir</title>
+        <title>About Anjir</title>
       </Helmet>
       <NavbarComponent />
-      <div>Home</div>
-      <FooterComponent/>
+      <div>About</div>
     </section>
   )
 }
+
+export default About

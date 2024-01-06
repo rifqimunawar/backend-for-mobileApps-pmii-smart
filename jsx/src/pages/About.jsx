@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import NavbarComponent from '../components/NavbarComponent'
+import FooterComponent from '../components/FooterComponent'
 
 const About = () => {
   return (
@@ -9,6 +10,7 @@ const About = () => {
       </Helmet>
       <NavbarComponent />
       <div>About</div>
+      <FooterComponent/>
     </section>
   )
 }

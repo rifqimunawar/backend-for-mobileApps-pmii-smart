@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet-async'
 import NavbarComponent from '../components/NavbarComponent'
-import FooterComponent from '../components/FooterComponent'
 
 export default function Home() {
   return (
@@ -10,7 +9,6 @@ export default function Home() {
       </Helmet>
       <NavbarComponent />
       <div>Home</div>
-      <FooterComponent/>
     </section>
   )
 }
