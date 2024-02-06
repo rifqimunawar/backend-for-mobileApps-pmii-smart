@@ -1,0 +1,29 @@
+GET http://localhost:8000/api/home
+
+###
+GET http://localhost:4000/Pasiens/1
+
+###
+POST http://localhost:4000/Pasiens
+Content-Type: application/json
+
+{
+  "name": "Rifqi Munawar Ridwan",
+  "date": "2023-10-01",
+  "doctor_id": 1
+}
+
+
+###
+PATCH  http://localhost:4000/Pasiens/2
+Content-Type: application/json
+
+{
+  "name": "pasien 1",
+  "date": "2023-10-01",
+  "doctor_id": 1
+}
+
+
+###
+DELETE  http://localhost:4000/Pasiens/3
