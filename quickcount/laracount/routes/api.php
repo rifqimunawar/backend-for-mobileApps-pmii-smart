@@ -20,3 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/home',[ApiController::class, 'home']);
+
+
+Route::get('/suaraSatu',[ApiController::class, 'suaraSatu']);
+Route::get('/totalSuaraSatu',[ApiController::class, 'totalSuaraSatu']);
+Route::get('/suaraDua',[ApiController::class, 'suaraDua']);
+Route::get('/totalSuaraDua',[ApiController::class, 'totalSuaraDua']);
+Route::get('/suaraTiga',[ApiController::class, 'suaraTiga']);
+Route::get('/totalSuaraTiga',[ApiController::class, 'totalSuaraTiga']);

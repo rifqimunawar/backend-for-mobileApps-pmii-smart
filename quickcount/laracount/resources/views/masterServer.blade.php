@@ -11,33 +11,35 @@
 
       <form action="{{ route('store') }}" method="post">
         @csrf
-        <div class="mb-3">
-          <select class="form-select" aria-label="Default select example" 
-          name="suara">
-            <option selected disabled>Pilih Suara</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <select class="form-select" aria-label="Default select example" 
-          name="provinsi">
-            <option selected disabled>--- Pilih Provinsi ---</option>
-            <option value="Jabar">Jabar</option>
-            <option value="Jateng">Jateng</option>
-            <option value="Jatim">Jatim</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <select class="form-select" aria-label="Default select example" 
-          name="usia">
-            <option disabled>---Usia---</option>
-            <option selected value="17-27">17-27</option>
-          </select>
+        <div class="mb-3" style="display: none">
+          <input type="text" name="suara" value="1">
+          <input type="text" name="provinsi" value="Jabar">
+          <input type="text" name="usia" value="17-27">
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary mb-3">01 Anis Imin</button>
+      </form>
+
+      <form action="{{ route('store') }}" method="post">
+        @csrf
+        <div class="mb-3" style="display: none">
+          <input type="text" name="suara" value="2">
+          <input type="text" name="provinsi" value="Jabar">
+          <input type="text" name="usia" value="17-27">
+        </div>
+
+        <button type="submit" class="btn btn-info mb-3">02 Prabowo Gibran</button>
+      </form>
+
+      <form action="{{ route('store') }}" method="post">
+        @csrf
+        <div class="mb-3" style="display: none">
+          <input type="text" name="suara" value="3">
+          <input type="text" name="provinsi" value="Jabar">
+          <input type="text" name="usia" value="17-27">
+        </div>
+
+        <button type="submit" class="btn btn-danger">03 Ganjar Mahfud</button>
       </form>
     </section>
 
