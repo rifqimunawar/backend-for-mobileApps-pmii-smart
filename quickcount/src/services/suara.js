@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getSuaraSatu = async () => {
   try {
-    const response = await axios.get('http://127.0.0.1:8000/api/totalSuaraSatu');
+    const response = await axios.get('https://quickcount.dashboard.iconnet-operation.com/api/totalSuaraSatu');
     return response.data; // Mengembalikan data dari respons
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -12,7 +12,7 @@ const getSuaraSatu = async () => {
 
 const getSuaraDua = async () => {
   try{ 
-    const response = await axios.get('http://127.0.0.1:8000/api/totalSuaraDua');
+    const response = await axios.get('https://quickcount.dashboard.iconnet-operation.com/api/totalSuaraDua');
     return response.data;
   }catch(error){
     console.error('Error fetching data dua:', error);
@@ -22,7 +22,7 @@ const getSuaraDua = async () => {
 
 const getSuaraTiga = async () => {
   try{
-    const respons = await axios.get('http://127.0.0.1:8000/api/totalSuaraTiga');
+    const respons = await axios.get('https://quickcount.dashboard.iconnet-operation.com/api/totalSuaraTiga');
     return respons.data;
   }catch(error){
     console.error('Error fetching data tiga:', error);

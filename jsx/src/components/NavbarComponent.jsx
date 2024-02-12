@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
-import logo from '../../public/BizLand/assets/img/Logo PMII Format PNG.png' // Sesuaikan path sesuai dengan struktur direktori proyek
+import logo from '/logo rayon.png' // Sesuaikan path sesuai dengan struktur direktori proyek
 
 function NavbarComponent() {
   const navigate = useNavigate()
@@ -10,8 +10,8 @@ function NavbarComponent() {
       <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo">
           <Link to="/" className="nav-link">
-            <img src={logo} alt="Logo" />
-            PMII<span> TEKNIK</span>
+            <img src={logo} alt="Logo"/>
+            PMII<span> TEKNIK</span> 
           </Link>
         </h1>
 

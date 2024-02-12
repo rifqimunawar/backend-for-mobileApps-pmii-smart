@@ -27,10 +27,10 @@ export default function SuaraComponent() {
     fetchData();
 
     // Panggil API setiap 10 detik
-    // const interval = setInterval(fetchData, 3000);
+    const interval = setInterval(fetchData, 3000);
 
     // Bersihkan interval pada unmount
-    // return () => clearInterval(interval);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -40,9 +40,9 @@ export default function SuaraComponent() {
           <img src={imgPaslon} alt="" style={{ width: '37rem' }} />
           <div>
             {/* Menampilkan hanya nilai data */}
-            <h3 className="suara1">{suaraSatuData} Mawar</h3>
-            <h3 className="suara2">{suaraDuaData} Mawar</h3>
-            <h3 className="suara3">{suaraTigaData} Mawar</h3>
+            <h3 className="suara1">{suaraSatuData} Suara</h3>
+            <h3 className="suara2">{suaraDuaData} Suara</h3>
+            <h3 className="suara3">{suaraTigaData} Suara</h3>
           </div>
         </div>
       </div>

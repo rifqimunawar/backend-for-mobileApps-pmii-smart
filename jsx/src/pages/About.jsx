@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import NavbarComponent from '../components/NavbarComponent';
 import FooterComponent from '../components/FooterComponent';
-import img from '../../public/BizLand/assets/img/about.jpg'
+import img from '/BizLand/assets/img/about.jpg'
 
 const About = () => {
   return (
