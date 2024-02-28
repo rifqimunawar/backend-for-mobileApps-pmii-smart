@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\QRController;
-use App\Http\Controllers\TiketController;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QRController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\TiketController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [ReactController::class,'home']);
+
 
 
 Route::get('/tiket/create', [TiketController::class,'create'])->name('tiketcreate');
