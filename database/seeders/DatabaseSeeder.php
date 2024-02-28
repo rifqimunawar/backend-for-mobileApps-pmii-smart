@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,17 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(UsersTableSeeder::class);
-        $this->call(HomesTableSeeder::class);
-        $this->call(PengurusesTableSeeder::class);
-        $this->call(GalerisTableSeeder::class);
-        $this->call(AspirasisTableSeeder::class);
-        $this->call(BeasiswasTableSeeder::class);
-        $this->call(CategoriesTableSeeder::class);
-        $this->call(PostsTableSeeder::class);
-        $this->call(TagsTableSeeder::class);
-        $this->call(PostTagTableSeeder::class);
-        $this->call(AgendasTableSeeder::class);
-        $this->call(CommentsTableSeeder::class);
+      DB::table('users')->insert([
+        'name' => 'rifqi',
+        'email' => 'rifqi@gmail.com',
+        'role' => 'super admin',
+        'password' => Hash::make('rifqi'),
+    ]);
     }
 }

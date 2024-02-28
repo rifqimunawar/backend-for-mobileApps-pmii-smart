@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +17,3 @@ use App\Http\Controllers\Api\ApiController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/home',[ApiController::class, 'home']);
-Route::get('/listBlogs',[ApiController::class, 'listBlogs']);

@@ -14,16 +14,18 @@ class RoleMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, ...$roles): Response
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        $user = Auth::user();
-    
-        foreach ($roles as $role) {
-            if ($user && $user->role == $role) {
-                return $next($request);
-            }
+        // Check if user has any of the specified roles
+        if (!$request->user() || !$this->checkUserRole($request->user(), $roles)) {
+            abort(403, 'ANDA TIDAK MEMILIKI AKES KE HALAMAN INI!!!');
         }
-    
-        abort(403, 'Anda Tidak Memiliki Hak Mengakses Halaman Tersebut!!!');
+
+        return $next($request);
+    }
+
+    private function checkUserRole($user, $roles)
+    {
+        return in_array($user->role, $roles);
     }
 }

@@ -1,5 +1,0 @@
-ukuran gambar di blog
-database kader
-random angka for view
-comment perbaiki jika kosong tidak bisa mengirim
-crud categories and tags

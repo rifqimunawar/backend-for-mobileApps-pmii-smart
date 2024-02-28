@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE', 'UTC'),
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -141,7 +141,7 @@ return [
 
     'maintenance' => [
         'driver' => 'file',
-        // 'store'  => 'redis',
+        // 'store' => 'redis',
     ],
 
     /*
@@ -168,12 +168,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        'Intervention\Image\ImageServiceProvider',
-        Orangehill\Iseed\IseedServiceProvider::class,
-        // JeroenNoten\LaravelCkEditor\ServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
-
     ])->toArray(),
 
     /*
@@ -189,9 +184,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'Image' => 'Intervention\Image\Facades\Image',
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-        
     ])->toArray(),
 
 ];
