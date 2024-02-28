@@ -1,7 +1,7 @@
 @section('title')
     {{ 'User' }}
 @endsection
-@extends('master')
+@extends('.master')
 @section('content')
     <div class="card info-card sales-card">
         <div class="container">
