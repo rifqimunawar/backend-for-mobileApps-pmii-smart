@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tikets', function (Blueprint $table) {
+        Schema::create('event_tikets', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('wa');
-            $table->string('email')->unique;
-            $table->string('qr_code');
-            $table->boolean('status')->default(false);
-            $table->string('user_id')->nullable;
-            $table->string('event_id')->nullable;
+            $table->foreignId('event_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tiket_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tikets');
+        Schema::dropIfExists('event_tikets');
     }
 };

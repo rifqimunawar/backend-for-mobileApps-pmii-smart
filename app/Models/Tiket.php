@@ -16,6 +16,10 @@ class Tiket extends Model
         return $this->belongsToMany(User::class, 'user_tikets');
     }
     
+    public function tiket()
+    {
+        return $this->belongsToMany(User::class, 'event_tikets');
+    }
     
     
 }
