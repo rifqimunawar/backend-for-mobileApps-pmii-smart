@@ -1,8 +1,46 @@
 .logo{
   width: 50px;
 }
-
-.container{
-  /* margin-left: 6rem !important;
-  margin-right: 6rem !important; */
+.brnChoise{
+  width: 200%;
+  margin-left: -50%;
 }
+.eventImg{
+  width: 700px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.card{
+  width: 400px;
+  padding: 30px;
+  background-color: bisque;
+}
+.cardPrice{
+  width: 400px;
+  height: 380px !important;
+  padding: 30px;
+  background-color: bisque;
+}
+.cardDescription{
+  width: 550px;
+  padding: 30px;
+  margin-bottom: 200px;
+  background-color: bisque;
+}
+.cardImg{
+  margin: -30px;
+}
+.card-body{
+  margin-left: -45px;
+  margin-right: -45px;
+  margin-bottom: -15px
+}
+.border-primary {
+  border-color: rgb(172, 124, 65);
+}
+
+/* .container{
+  margin-left: 6rem !important;
+  margin-right: 6rem !important;
+} */

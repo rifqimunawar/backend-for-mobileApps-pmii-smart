@@ -31,8 +31,8 @@
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td class="">{{ $index->title }}</td>
                             <td class="text-center">
-                                <img src="{{ $index->img }}" alt="" style="width: 70px">
-                            </td>
+                              <img src="{{ asset('img/' . $index->img) }}" alt="" style="width: 70px">
+                          </td>                          
                             <td class="text-center">
                                 {{-- <form action="{{ route('user.destroy', $index->id) }}" method="POST"> --}}
                                 <form action="{{ route('event.destroy', $index->id) }}" method="POST">

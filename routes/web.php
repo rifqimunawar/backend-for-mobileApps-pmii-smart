@@ -25,7 +25,7 @@ use App\Http\Controllers\ReactController;
 // });
 
 Route::get('/', [ReactController::class,'home']);
-
+Route::get('/event/choice/{id}', [ReactController::class,'event_choise']);
 
 
 Route::get('/tiket/create', [TiketController::class,'create'])->name('tiketcreate');

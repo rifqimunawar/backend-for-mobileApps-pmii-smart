@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('date'); // Ubah menjadi date
             $table->time('time'); // Ubah menjadi time
             $table->string('place');
+            $table->integer('rp');
             $table->string('penyelenggara');
             $table->integer('jumlah_tiket'); // Ubah menjadi integer
             // $table->string('tiket_id')->nullable();

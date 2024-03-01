@@ -10,6 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ asset('css/react.css') }}">
     <title>React-Inertia</title>
+    <html data-theme="retro"></html>
 </head>
 
 <body>
