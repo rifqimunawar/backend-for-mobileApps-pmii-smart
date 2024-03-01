@@ -570,6 +570,16 @@ class ComposerStaticIniteeb6b0e773314e7f9ea9a7cfdd911d6d
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'O' => 
+        array (
+            'Orangehill\\Iseed' => 
+            array (
+                0 => __DIR__ . '/..' . '/orangehill/iseed/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'App\\Console\\Commands\\Backup' => __DIR__ . '/../..' . '/app/Console/Commands/Backup.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -796,10 +806,11 @@ class ComposerStaticIniteeb6b0e773314e7f9ea9a7cfdd911d6d
         'DASPRiD\\Enum\\NullValue' => __DIR__ . '/..' . '/dasprid/enum/src/NullValue.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
-        'Database\\Seeders\\EventSeeder' => __DIR__ . '/../..' . '/database/seeders/EventSeeder.php',
-        'Database\\Seeders\\TiketSeeder' => __DIR__ . '/../..' . '/database/seeders/TiketSeeder.php',
-        'Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/database/seeders/UserSeeder.php',
-        'Database\\Seeders\\UserTiketSeeder' => __DIR__ . '/../..' . '/database/seeders/UserTiketSeeder.php',
+        'Database\\Seeders\\EventTiketsTableSeeder' => __DIR__ . '/../..' . '/database/seeders/EventTiketsTableSeeder.php',
+        'Database\\Seeders\\EventsTableSeeder' => __DIR__ . '/../..' . '/database/seeders/EventsTableSeeder.php',
+        'Database\\Seeders\\TiketsTableSeeder' => __DIR__ . '/../..' . '/database/seeders/TiketsTableSeeder.php',
+        'Database\\Seeders\\UserTiketsTableSeeder' => __DIR__ . '/../..' . '/database/seeders/UserTiketsTableSeeder.php',
+        'Database\\Seeders\\UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeders/UsersTableSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
         'DateInvalidOperationException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateInvalidOperationException.php',
@@ -4077,6 +4088,11 @@ class ComposerStaticIniteeb6b0e773314e7f9ea9a7cfdd911d6d
         'NunoMaduro\\Collision\\Provider' => __DIR__ . '/..' . '/nunomaduro/collision/src/Provider.php',
         'NunoMaduro\\Collision\\SolutionsRepositories\\NullSolutionsRepository' => __DIR__ . '/..' . '/nunomaduro/collision/src/SolutionsRepositories/NullSolutionsRepository.php',
         'NunoMaduro\\Collision\\Writer' => __DIR__ . '/..' . '/nunomaduro/collision/src/Writer.php',
+        'Orangehill\\Iseed\\Facades\\Iseed' => __DIR__ . '/..' . '/orangehill/iseed/src/Orangehill/Iseed/Facades/Iseed.php',
+        'Orangehill\\Iseed\\Iseed' => __DIR__ . '/..' . '/orangehill/iseed/src/Orangehill/Iseed/Iseed.php',
+        'Orangehill\\Iseed\\IseedCommand' => __DIR__ . '/..' . '/orangehill/iseed/src/Orangehill/Iseed/IseedCommand.php',
+        'Orangehill\\Iseed\\IseedServiceProvider' => __DIR__ . '/..' . '/orangehill/iseed/src/Orangehill/Iseed/IseedServiceProvider.php',
+        'Orangehill\\Iseed\\TableNotFoundException' => __DIR__ . '/..' . '/orangehill/iseed/src/Orangehill/Iseed/Exceptions.php',
         'Override' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/Override.php',
         'PHPUnit\\Event\\Application\\Finished' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/Finished.php',
         'PHPUnit\\Event\\Application\\FinishedSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/FinishedSubscriber.php',
@@ -7110,6 +7126,7 @@ class ComposerStaticIniteeb6b0e773314e7f9ea9a7cfdd911d6d
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticIniteeb6b0e773314e7f9ea9a7cfdd911d6d::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticIniteeb6b0e773314e7f9ea9a7cfdd911d6d::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticIniteeb6b0e773314e7f9ea9a7cfdd911d6d::$prefixesPsr0;
             $loader->classMap = ComposerStaticIniteeb6b0e773314e7f9ea9a7cfdd911d6d::$classMap;
 
         }, null, ClassLoader::class);

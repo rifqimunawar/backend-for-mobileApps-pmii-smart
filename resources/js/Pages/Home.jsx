@@ -18,7 +18,7 @@ export default function Home({ events }) {
         {/* Render EventCard for each event */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 gap-5">
           {events.map((event) => (
-            <Link href={'/event/choice/' + event.id} key={event.id}>
+            <Link href={'/event/' + event.id} key={event.id}>
               <EventCardComponent event={event} />
             </Link>
           ))}

@@ -20,7 +20,7 @@ class ReactController extends Controller
         return Inertia::render('Home', ['events' => $events]); 
     }
 
-    public function event_choise($id){
+    public function eventID($id){
         // Find the event by ID
         $event = Event::findOrFail($id);
         // Check if the event is found
@@ -31,6 +31,20 @@ class ReactController extends Controller
         // Update the image URL
         $event->img = self::MASTER_IMG_URL . $event->img;
         // Pass the updated event data to the Inertia view
-        return Inertia::render('EventChoise', ['event_details' => $event]);
+        return Inertia::render('EventDetail', ['event_details' => $event]);
+    }
+
+    public function event_choise($id){
+      $event = Event::findOrFail($id);
+      if (!$event) {
+          return response()->json(['message' => 'Event not found'], 404);
+      }
+      $event->img = self::MASTER_IMG_URL . $event->img;
+
+      return Inertia::render('EventChoise', ['eventChoise'=>$event, ]);
+    }
+
+    public function store(Request $request){
+      
     }
 }

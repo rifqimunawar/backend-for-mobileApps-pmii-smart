@@ -17,6 +17,7 @@
   background-color: bisque;
 }
 .cardPrice{
+  margin-top: 10px;
   width: 400px;
   height: 380px !important;
   padding: 30px;
@@ -25,7 +26,7 @@
 .cardDescription{
   width: 550px;
   padding: 30px;
-  margin-bottom: 200px;
+  margin-bottom: auto;
   background-color: bisque;
 }
 .cardImg{
@@ -40,7 +41,19 @@
   border-color: rgb(172, 124, 65);
 }
 
-/* .container{
-  margin-left: 6rem !important;
-  margin-right: 6rem !important;
-} */
+/* ========== Event Choise */
+.eventImgSmall{
+  width: 120px;
+  border-radius: 10px;
+  margin-right: 20px;
+  object-fit: cover;
+}
+.cardForm{
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 550px;
+  padding: 30px;
+  margin-bottom: auto;
+  background-color: bisque;
+  
+}
