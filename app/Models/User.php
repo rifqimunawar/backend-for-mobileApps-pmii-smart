@@ -58,7 +58,7 @@ class User extends Authenticatable
 
         static::deleting(function ($user) {
             // Cek apakah pengguna memiliki tiket terkait
-            if ($user->tiket()->exists()) {
+            if ($user->tikets()->exists()) {
                 // Jika iya, lempar pengecualian untuk mencegah penghapusan
                 throw new \Exception("User cannot be deleted because they have related tickets.");
             }

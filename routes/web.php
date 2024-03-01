@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRController;
@@ -32,7 +33,7 @@ Route::post('/tiket/store', [TiketController::class,'store'])->name('tiketStore'
 Route::get('/tiket/getTiket/{tiketID}', [TiketController::class,'getTiket'])->name('getTiket');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'role:super admin'])->group(function () {
@@ -40,12 +41,19 @@ Route::middleware(['auth', 'role:super admin'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    ROute::get('/dataAdmin', [MainController::class,'index'])->name('dataAdmin');
-    ROute::get('/adminCreate', [MainController::class,'create'])->name('adminCreate');
-    ROute::post('/adminStore', [MainController::class,'store'])->name('adminStore');
-    ROute::get('/adminEdit/{id}', [MainController::class,'edit']);
-    ROute::put('/adminUpdate/{id}', [MainController::class,'update'])->name('adminUpdate');
-    ROute::delete('/adminDelete/{id}', [MainController::class,'destroy'])->name('destroy');
+    Route::get('/dataAdmin', [MainController::class,'index'])->name('dataAdmin');
+    Route::get('/adminCreate', [MainController::class,'create'])->name('adminCreate');
+    Route::post('/adminStore', [MainController::class,'store'])->name('adminStore');
+    Route::get('/adminEdit/{id}', [MainController::class,'edit']);
+    Route::put('/adminUpdate/{id}', [MainController::class,'update'])->name('adminUpdate');
+    Route::delete('/adminDelete/{id}', [MainController::class,'destroy'])->name('destroy');
+
+    Route::get('/event', [EventController::class,'index'])->name('event.index');
+    Route::get('/event/create', [EventController::class,'create'])->name('event.create');
+    Route::post('/event/store', [EventController::class,'store'])->name('event.store');
+    Route::get('/event/edit/{id}', [EventController::class,'edit'])->name('event.edit');
+    Route::put('/event/update/{id}', [EventController::class,'update'])->name('event.update');
+    Route::delete('/event/delete/{id}', [EventController::class,'destroy'])->name('event.destroy');
 });
 
 

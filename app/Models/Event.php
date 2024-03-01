@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = ([]);
     public function tikets()
 {
     return $this->belongsToMany(Tiket::class, 'event_tikets');

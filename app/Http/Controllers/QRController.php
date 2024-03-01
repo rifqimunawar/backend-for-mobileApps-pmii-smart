@@ -14,16 +14,10 @@ class QRController extends Controller
   public function scanQR()
   {
     $id_user = Auth::user();
-
-
-    // $users = User::with('tiket')->get();
-    // $tiket = Tiket::with('users')->get();
-
-    // dd($tiket);
-      return view('scan_qr', compact('id_user'));
+      return view('dashboard.scan.scan_qr', compact('id_user'));
   }
   public function qrScanResult(Request $request)
-{
+  {
     $result = $request->input('result');
 
     // Decode JSON data from request body
@@ -64,10 +58,5 @@ class QRController extends Controller
     }
     
     return response()->json(['icon' => $icon, 'title' => $title, 'message' => $message], 200);
-}
-
-  
-
-  
-  
+  }
 }

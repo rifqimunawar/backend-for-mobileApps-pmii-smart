@@ -10,11 +10,11 @@ class MainController extends Controller
 {
     public function index(){
       $admin=User::latest()->get();
-      return view('dasboard.dataAdmin', compact('admin'));
+      return view('dashboard.admin.dataAdmin', compact('admin'));
     }
 
     public function create(){
-      return view('createAdmin');
+      return view('dashboard.admin.createAdmin');
     }
 
     public function store(Request $request)
@@ -50,7 +50,7 @@ class MainController extends Controller
     
     public function edit($id){
       $admin = User::findOrFail($id);
-      return view('dashboard.editAdmin', compact('admin'));
+      return view('dashboard.admin.editAdmin', compact('admin'));
     }
 
     public function update($id, Request $request)

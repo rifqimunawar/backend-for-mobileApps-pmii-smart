@@ -17,12 +17,13 @@ class EventSeeder extends Seeder
         'title' => 'konser DCDC',
         'img' => 'https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20220916155646_63243a4ec5193.jpg',
         'description' => 'konser seru dcdc dihadiri banyak artis',
-        'date' => '12-12-2022',
-        'time' => '09.30',
+        'date' => '2022-12-12', // Sesuaikan format tanggal
+        'time' => '09:30:00', // Sesuaikan format waktu
         'place' => 'Lapang Uninus',
         'penyelenggara' => 'Dema',
-        'jumlah_tiket' => '100',
+        'jumlah_tiket' => 100, // Simpan sebagai integer
         // 'tiket_id' => '1',
     ]);
+    
     }
 }

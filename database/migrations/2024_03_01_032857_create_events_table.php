@@ -15,16 +15,17 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('img');
-            $table->string('description');
-            $table->string('date');
-            $table->string('time');
+            $table->text('description'); // Ubah menjadi text
+            $table->date('date'); // Ubah menjadi date
+            $table->time('time'); // Ubah menjadi time
             $table->string('place');
             $table->string('penyelenggara');
-            $table->string('jumlah_tiket');
-            $table->string('tiket_id')->nullable();
+            $table->integer('jumlah_tiket'); // Ubah menjadi integer
+            // $table->string('tiket_id')->nullable();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
