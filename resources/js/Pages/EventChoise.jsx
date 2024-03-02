@@ -126,53 +126,38 @@
 //       </div>
 //   )
 // }
-
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from '@inertiajs/inertia-react';
-import { Inertia } from '@inertiajs/inertia';
 
-export default function EventChoise({ eventChoise }) {
-  const { data, setData, post } = useForm({
-    name: '',
-    wa: '',
-    email: '',
-    _token: '', // CSRF token
-    event_id: eventChoise ? eventChoise.id : '', // Assign event_id directly if eventChoise is available
-  });
+export default function EventForm({eventChoise}) {
+    const { data, setData, post } = useForm({
+        name: '',
+        wa: '',
+        email: '',
+        _token: document.querySelector('meta[name="csrf-token"]').content,
+        event_id :eventChoise.id
+    });
 
-  useEffect(() => {
-    // Mendapatkan CSRF token dari tag meta
-    setData('_token', document.querySelector('meta[name="csrf-token"]').content);
-  }, []);
+    const handleChange = (e) => {
+        setData(e.target.id, e.target.value);
+    };
 
-  function handleChange(e) {
-    const key = e.target.id;
-    const value = e.target.value;
-    setData(key, value);
-  }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(data)
+        post('/transaction/store');
+        // post('/event/store');
+    };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    
-    // Assign event_id if available
-    if (eventChoise) {
-      setData('event_id', eventChoise.id);
-    }
-
-    console.log(data);
-    post('/event/store');
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
-      <input id="name" value={data.name} onChange={handleChange} />
-      <label htmlFor="wa">Wa:</label>
-      <input id="wa" value={data.wa} onChange={handleChange} />
-      <label htmlFor="email">Email:</label>
-      <input id="email" value={data.email} onChange={handleChange} />
-      <button type="submit">Submit</button>
-    </form>
-  );
+    return (
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="name">Name:</label>
+            <input type="text" id="name" value={data.name} onChange={handleChange} />
+            <label htmlFor="wa">WhatsApp:</label>
+            <input type="text" id="wa" value={data.wa} onChange={handleChange} />
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" value={data.email} onChange={handleChange} />
+            <button type="submit">Submit</button>
+        </form>
+    );
 }

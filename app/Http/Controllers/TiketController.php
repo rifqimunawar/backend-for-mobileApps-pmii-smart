@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\Tiket;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -11,44 +12,48 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class TiketController extends Controller
 {
 
-  public function create(){
-    return view('pendaftaran.index');
+  public function create()
+  {
+      return inertia('EventForm');
   }
 
-  public function store(Request $request){
+  public function store(Request $request)
+  {
+      $request->validate([
+          'name' => 'required|max:50',
+          'wa' => 'required|max:50',
+          'email' => 'required|email|max:50',
+          '_token' => 'required', // Pastikan _token disertakan
+          'event_id' => 'required', // Pastikan _token disertakan
+      ]);
 
-    $validator = Validator::make($request->all(), [
-        'name' => 'required',
-        'wa' => 'required|numeric', // Use 'numeric' instead of 'number'
-        'email' => 'required|email', // Add 'email' validation rule to validate email format
-    ]);
-
-    if ($validator->fails()) {
-        return back()->withErrors($validator)->withInput();
-    }
-
-
-    
-    $qr_code = Str::random(20);
-    // Cek apakah QR code sudah ada di database
+   // Generate QR code
+    $qr_code = 'event_' . $request->event_id . '_' . Str::random(20); 
     while (Tiket::where('qr_code', $qr_code)->exists()) {
         // Jika sudah ada, maka generate ulang QR code
-        $qr_code = Str::random(20);
+        $qr_code = 'event_' . $request->event_id . '_' . Str::random(20); 
     }
-    $tiket = new Tiket();
-    $tiket->name = $request->name;
-    $tiket->wa = $request->wa;
-    $tiket->email = $request->email;
-    $tiket->qr_code = $qr_code;
-    $tiket->user_id = $request->user_id;
-    $tiket->save();
-    
-    $qr = $tiket->qr_code; 
-    
-    return redirect()->route('getTiket', ['tiketID' => $qr]);
-    
 
+   // Simpan tiket bersama dengan nama file QR code
+    $tiket = Tiket::create([
+        'name' => $request->name,
+        'wa' => $request->wa,
+        'email' => $request->email,
+        'event_id' => $request->event_id,
+        'qr_code' => $qr_code, // Simpan nama file QR code
+    ]);
+
+
+    // Nanti disini kita menyimpan midtrans
+
+      return response()->json(['success' => true, 'message' => 'Data tiket berhasil disimpan']);
   }
+
+
+  public function success($id){
+    $tiket = Tiket::findOrFail($id);
+    return Inertia::render('RegisterSuceess', ['tiket'=>$tiket]);
+}
 
 
   public function getTiket($qr){
