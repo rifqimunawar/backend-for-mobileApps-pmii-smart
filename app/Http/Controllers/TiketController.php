@@ -46,15 +46,15 @@ class TiketController extends Controller
 
     // Nanti disini kita menyimpan midtrans
 
-      return response()->json(['success' => true, 'message' => 'Data tiket berhasil disimpan']);
+    return redirect()->route('tiket.checkout', $qr_code);
+      // return response()->json(['success' => true, 'message' => 'Data tiket berhasil disimpan']);
   }
 
 
-  public function success($id){
-    $tiket = Tiket::findOrFail($id);
-    return Inertia::render('RegisterSuceess', ['tiket'=>$tiket]);
+  public function checkout($qr_code){
+    $tiket = Tiket::where('qr_code', $qr_code)->firstOrFail();
+    return Inertia::render('EventCheckout', ['tiket'=>$tiket]);
 }
-
 
   public function getTiket($qr){
     // Generate QR code

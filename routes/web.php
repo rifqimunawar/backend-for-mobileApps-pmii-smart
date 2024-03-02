@@ -27,12 +27,11 @@ use App\Http\Controllers\ReactController;
 Route::get('/', [ReactController::class,'home']);
 Route::get('/event/{id}', [ReactController::class,'eventID']);
 Route::get('/event/choice/{id}', [ReactController::class,'event_choise']);
-Route::get('/event/success/{id}', [ReactController::class, 'success'])->name('tiket.success');
 
 
 Route::get('/transaction/create', [TiketController::class, 'create'])->name('transaction.create');
 Route::post('/transaction/store', [TiketController::class, 'store'])->name('transaction.store');
-
+Route::get('/event/checkout/{qr_code}', [TiketController::class, 'checkout'])->name('tiket.checkout');
 
 Route::get('/tiket/create', [TiketController::class,'create'])->name('tiketcreate');
 Route::post('/tiket/store', [TiketController::class,'store'])->name('tiketStore');
