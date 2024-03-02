@@ -67,24 +67,29 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        
-                        <div class="mb-3">
-                          <label for="description" class="form-label">Deskripsi Event</label>
-                          <textarea name="description" class="form-control @error('description') is-invalid @enderror" 
-                          id="description" rows="3" required>{{ $event->description }}</textarea>
-                          @error('description')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                          @enderror
-                      </div>
 
                         <div class="mb-3">
+                            <label for="description" class="form-label">Deskripsi Event</label>
+                            <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description"
+                                rows="3" required>{{ $event->description }}</textarea>
+                            @error('description')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <img src="{{ asset('img/' . $event->img) }}" alt="" style="width: 100px">
+                        </div>
+                        <div class="mb-3">
                             <label for="img" class="form-label">Poster</label>
-                            <input type="file" name="img" class="form-control @error('img') is-invalid @enderror"
-                                id="img" required value="{{ $event->img }}">
+                            <input type="file" name="img" class="form-control 
+                            @error('img') is-invalid @enderror"
+                                id="img">
                             @error('img')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
 
                         <div class="pt-3 text-center">
                             <a href="{{ route('dataAdmin') }}" class="btn btn-warning btn-sm">Kembali</a>

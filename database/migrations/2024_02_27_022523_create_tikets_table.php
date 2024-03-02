@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('wa');
-            $table->string('email')->unique;
-            $table->string('qr_code');
+            $table->string('email')->nullable();
+            $table->string('qr_code')->nullable();
             $table->boolean('status')->default(false);
-            $table->string('user_id')->nullable;
-            $table->string('event_id')->nullable;
+            $table->string('user_id')->nullable();
+            $table->string('event_id')->nullable();
+            $table->string('snap_token')->nullable();
             $table->timestamps();
         });
     }

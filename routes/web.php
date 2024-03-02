@@ -27,7 +27,7 @@ use App\Http\Controllers\ReactController;
 Route::get('/', [ReactController::class,'home']);
 Route::get('/event/{id}', [ReactController::class,'eventID']);
 Route::get('/event/choice/{id}', [ReactController::class,'event_choise']);
-
+Route::post('/event/store', [ReactController::class, 'store']);
 
 Route::get('/tiket/create', [TiketController::class,'create'])->name('tiketcreate');
 Route::post('/tiket/store', [TiketController::class,'store'])->name('tiketStore');
@@ -50,7 +50,7 @@ Route::middleware(['auth', 'role:super admin'])->group(function () {
     Route::delete('/adminDelete/{id}', [MainController::class,'destroy'])->name('destroy');
 
     Route::get('/event', [EventController::class,'index'])->name('event.index');
-    Route::get('/event/create', [EventController::class,'create'])->name('event.create');
+    Route::get('/eventCreate', [EventController::class,'create'])->name('event.create');
     Route::post('/event/store', [EventController::class,'store'])->name('event.store');
     Route::get('/event/edit/{id}', [EventController::class,'edit'])->name('event.edit');
     Route::put('/event/update/{id}', [EventController::class,'update'])->name('event.update');

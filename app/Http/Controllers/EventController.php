@@ -29,6 +29,7 @@ class EventController extends Controller
             'penyelenggara' => 'required',
             'img' => 'required|image|mimes:jpg,png|max:2048', // 2mb
             'jumlah_tiket' => 'required|numeric', // Validate jumlah tiket
+            'rp' => 'required|numeric', // Validate jumlah tiket
         ]);
     
         if ($validator->fails()) {
@@ -43,6 +44,7 @@ class EventController extends Controller
         $event->place = $request->input('place');
         $event->penyelenggara = $request->input('penyelenggara');
         $event->jumlah_tiket = $request->input('jumlah_tiket'); // Simpan jumlah tiket
+        $event->rp = $request->input('rp'); // Simpan jumlah tiket
     
         if ($request->hasFile('img')) {
             $image = $request->file('img');
@@ -70,7 +72,7 @@ class EventController extends Controller
             'time' => 'required|date_format:H:i',
             'place' => 'required',
             'penyelenggara' => 'required',
-            'img' => 'required|image|mimes:jpg,png|max:2048 ', // 2mb 
+            // 'img' => 'required|image|mimes:jpg,png|max:2048 ', // 2mb 
         ]);
 
         if ($validator->fails()) {

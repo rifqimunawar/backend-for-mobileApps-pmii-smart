@@ -89,6 +89,14 @@
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                       </div>
+
+                        <div class="mb-3">
+                          <label for="rp" class="form-label">Harga Satuan Tiket</label>
+                          <input name="rp" class="form-control @error('rp') is-invalid @enderror" id="rp" rows="3" required/>
+                          @error('rp')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
+                      </div>
                       
 
                         <div class="mb-3">
