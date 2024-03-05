@@ -33,6 +33,11 @@ Route::get('/transaction/create', [TiketController::class, 'create'])->name('tra
 Route::post('/transaction/store', [TiketController::class, 'store'])->name('transaction.store');
 Route::get('/event/checkout/{qr_code}', [TiketController::class, 'checkout'])->name('tiket.checkout');
 
+Route::get('/testFunction/{qr_code}', [TiketController::class, 'test'])->name('test');
+
+
+Route::get('/event/checkout/success/pay/{qr_code}/{snap}', [TiketController::class, 'success'])->name('tiket.success');
+
 Route::get('/tiket/create', [TiketController::class,'create'])->name('tiketcreate');
 Route::post('/tiket/store', [TiketController::class,'store'])->name('tiketStore');
 Route::get('/tiket/getTiket/{tiketID}', [TiketController::class,'getTiket'])->name('getTiket');

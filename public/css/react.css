@@ -18,8 +18,9 @@
 }
 .cardPrice{
   margin-top: 10px;
-  width: 400px;
-  height: 380px !important;
+
+  width: 550px;
+  height: auto;
   padding: 30px;
   background-color: bisque;
 }
@@ -31,6 +32,9 @@
 }
 .cardImg{
   margin: -30px;
+  width: 288px;
+  height: 150px;
+  object-fit: cover;
 }
 .card-body{
   margin-left: -45px;

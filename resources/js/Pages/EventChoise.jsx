@@ -63,133 +63,103 @@ export default function EventChoise({ eventChoise }) {
 
               {/* <FormComponent/> */}
 
-              <div className="cardForm shadow-xl mb-8">
-                <h1 className="">Detail Pemesan</h1>
+              <div className="cardPrice p-6 shadow-xl rounded-2xl">
+                <h1 className="text-2xl mt-3 mb-3">{eventChoise.title}</h1>
 
-                <form onSubmit={handleSubmit}>
-                  <label className="form-control w-full mb-3">
-                    <div className="label">
-                      <span className="label-text">
-                        <strong>Nama Lengkap</strong>
-                      </span>
-                    </div>
-                    <input
-                      type="text"
-                      id="name"
-                      required
-                      value={data.name}
-                      onChange={handleChange}
-                      placeholder="Nama Lengkap"
-                      className="input input-bordered w-full"
-                    />
-                  </label>
+                <p className="flex items-center">
+                  <HiCalendar className="mr-2" />
+                  {format(new Date(eventChoise.date), 'EEEE, d MMMM yyyy')}
+                </p>
+                <p className="flex items-center">
+                  <HiClock className="mr-2" />
+                  {eventChoise.time.split(':').slice(0, 2).join(':')} WIB
+                </p>
+                <p className="flex items-center">
+                  <HiLocationMarker className="mr-2 truncate" />
+                  {eventChoise.place}
+                </p>
 
-                  <label className="form-control w-full mb-3">
-                    <div className="label">
-                      <span className="label-text">
-                        <strong>Nomor Ponsel</strong>
-                      </span>
-                    </div>
-                    <input
-                      type="number"
-                      id="wa"
-                      value={data.wa}
-                      onChange={handleChange}
-                      required
-                      placeholder="Type here"
-                      className="input input-bordered w-full "
-                    />
-                  </label>
-
-                  <label className="form-control w-full mb-3">
-                    <div className="label">
-                      <span className="label-text">
-                        <strong>Email</strong> E-Tiket Akan Dikirim Melalui
-                        Email
-                      </span>
-                    </div>
-                    <input
-                      type="email"
-                      id="email"
-                      value={data.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="Type here"
-                      className="input input-bordered w-full "
-                    />
-                  </label>
-
-                  <div className="flex mt-5 justify-center align items-center">
-                    <button
-                      type="submit"
-                      className="btn btn-primary"
-                      disabled={processing}
-                    >
+                <div className="flex flex-col items-center mt-auto">
+                  <p className="mb-5 mt-5 text-lg">
+                    Harga Tiket: Rp:{' '}
+                    <span className=" font-medium">
                       {' '}
-                      {processing ? 'Menyimpan...' : 'Kirim'}
-                    </button>
-                  </div>
-                </form>
+                      {eventChoise.rp.toLocaleString('id-ID')}{' '}
+                    </span>
+                  </p>
+                </div>
               </div>
-
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  readOnly
-                  id="name"
-                  value={data.name}
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  readOnly
-                  id="wa"
-                  value={data.wa}
-                  onChange={handleChange}
-                />
-                <input
-                  type="email"
-                  readOnly
-                  id="email"
-                  value={data.email}
-                  onChange={handleChange}
-                />
-              </form>
             </div>
           </div>
         </div>
 
         <div className="w-1/2 flex justify-center">
-          <div className="cardPrice p-6 shadow-xl rounded-2xl">
-            <h1 className="text-2xl mt-3 mb-3">{eventChoise.title}</h1>
+          <div className="cardForm shadow-xl mb-8">
+            <h1 className="">Detail Pemesan</h1>
 
-            <p className="flex items-center">
-              <HiCalendar className="mr-2" />
-              {format(new Date(eventChoise.date), 'EEEE, d MMMM yyyy')}
-            </p>
-            <p className="flex items-center">
-              <HiClock className="mr-2" />
-              {eventChoise.time.split(':').slice(0, 2).join(':')} WIB
-            </p>
-            <p className="flex items-center">
-              <HiLocationMarker className="mr-2 truncate" />
-              {eventChoise.place}
-            </p>
+            <form onSubmit={handleSubmit}>
+              <label className="form-control w-full mb-3">
+                <div className="label">
+                  <span className="label-text">
+                    <strong>Nama Lengkap</strong>
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={data.name}
+                  onChange={handleChange}
+                  placeholder="Nama Lengkap"
+                  className="input input-bordered w-full"
+                />
+              </label>
 
-            <div className="flex flex-col items-center mt-auto">
-              <p className="mb-5 mt-5 text-lg">
-                Harga Mulai Dari: Rp:{' '}
-                <span className=" font-medium">
+              <label className="form-control w-full mb-3">
+                <div className="label">
+                  <span className="label-text">
+                    <strong>Nomor Ponsel</strong>
+                  </span>
+                </div>
+                <input
+                  type="number"
+                  id="wa"
+                  value={data.wa}
+                  onChange={handleChange}
+                  required
+                  placeholder="Type here"
+                  className="input input-bordered w-full "
+                />
+              </label>
+
+              <label className="form-control w-full mb-3">
+                <div className="label">
+                  <span className="label-text">
+                    <strong>Email</strong> E-Tiket Akan Dikirim Melalui Email
+                  </span>
+                </div>
+                <input
+                  type="email"
+                  id="email"
+                  value={data.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="Type here"
+                  className="input input-bordered w-full "
+                />
+              </label>
+
+              <div className="flex mt-5 justify-center align items-center">
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  disabled={processing}
+                >
                   {' '}
-                  {eventChoise.rp.toLocaleString('id-ID')}{' '}
-                </span>
-              </p>
-              <Link href={'/event/choice/' + eventChoise.id}>
-                <button className="brnChoise btn btn-primary mb-2">
-                  Pesan Tiket Sekarang
+                  {processing ? 'Menyimpan Pesanan...' : 'Pesan Tiket Sekarang'}
                 </button>
-              </Link>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

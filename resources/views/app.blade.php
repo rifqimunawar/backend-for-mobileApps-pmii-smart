@@ -16,6 +16,7 @@
 
 <body>
     @inertia
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-UcMGRUflT9EkCNZ3"></script>
 </body>
 
 </html>
