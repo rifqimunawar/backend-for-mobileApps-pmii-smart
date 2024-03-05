@@ -12,15 +12,15 @@ export default function EventCardComponent({ event }) {
         <h2 className="card-title text-xl truncate" title={event.title}>
           {event.title}
         </h2>
-        <p className="flex items-center">
-          <HiCalendar className="mr-2" />{' '}
+        <p className="flex items-center text-sm">
+          <HiCalendar className="mr-2 truncate text-nowrap" />{' '}
           {format(new Date(event.date), 'EEEE, d MMMM yyyy')}
         </p>
         <p className="flex items-center">
           <HiLocationMarker className="mr-2 truncate" /> {event.place}
         </p>
         <hr className="border-primary" />
-        <p className="flex items-center">
+        <p className="flex items-center text-sm" >
           <HiCash className="mr-2" />
           Rp: {event.rp.toLocaleString('id-ID')},00
         </p>

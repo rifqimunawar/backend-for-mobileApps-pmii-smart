@@ -32,6 +32,7 @@ Route::get('/event/choice/{id}', [ReactController::class,'event_choise']);
 Route::get('/transaction/create', [TiketController::class, 'create'])->name('transaction.create');
 Route::post('/transaction/store', [TiketController::class, 'store'])->name('transaction.store');
 Route::get('/event/checkout/{qr_code}', [TiketController::class, 'checkout'])->name('tiket.checkout');
+Route::get('/tiketajg', [TiketController::class, 'tiketajg']);
 
 Route::get('/testFunction/{qr_code}', [TiketController::class, 'test'])->name('test');
 

@@ -8,7 +8,7 @@ export default function EventDetail({ event_details }) {
   return (
     <div>
       <NavbarComponent />
-      <div className="container mx-auto flex justify-center mt-6">
+      <div className="container mx-auto flex justify-center mt-6 mb-9">
         <div className="flex">
           <div className="w-1/2">
             <img
@@ -20,7 +20,7 @@ export default function EventDetail({ event_details }) {
               <p className="text-base">{event_details.description}</p>
             </div>
           </div>
-          <div className="w-1/2 flex justify-center">
+          <div className="w-1/2 flex justify-center mb-auto">
             <div className="cardPrice p-6 shadow-xl rounded-2xl">
               <h1 className="text-2xl mt-3 mb-3">{event_details.title}</h1>
 

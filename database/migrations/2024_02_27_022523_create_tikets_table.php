@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('event_id')->nullable();
             $table->string('snap_token')->nullable();
             $table->boolean('statusPay')->default(false);
+            $table->string('ip_address')->nullable();
             $table->timestamps();
         });
     }

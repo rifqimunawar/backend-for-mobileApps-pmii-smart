@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class UserTiketsTableSeeder extends Seeder
+class EventTiketsTableSeeder extends Seeder
 {
 
     /**
@@ -16,7 +16,7 @@ class UserTiketsTableSeeder extends Seeder
     {
         
 
-        \DB::table('user_tikets')->delete();
+        \DB::table('event_tikets')->delete();
         
         
         

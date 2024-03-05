@@ -7,7 +7,9 @@ use App\Models\Event;
 use App\Models\Tiket;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Validation\ValidationException;
 
 class TiketController extends Controller
 {
@@ -16,7 +18,6 @@ class TiketController extends Controller
   {
       return inertia('EventForm');
   }
-
   public function store(Request $request)
   {
       $request->validate([
@@ -30,17 +31,30 @@ class TiketController extends Controller
       // Generate QR code
       $qr_code = 'event_' . $request->event_id . '_' . Str::random(20); 
       while (Tiket::where('qr_code', $qr_code)->exists()) {
-          // Jika sudah ada, maka generate ulang QR code
+          // If already exists, then regenerate QR code
           $qr_code = 'event_' . $request->event_id . '_' . Str::random(20); 
       }
   
-      // Simpan tiket bersama dengan nama file QR code
+      // Get user IP address from https://api.ipify.org/
+      $ip_address_response = Http::get('https://api.ipify.org/');
+      $ip_address = $ip_address_response->body();
+          
+        // // Check if IP address already exists
+        // if (Tiket::where('ip_address', $ip_address)->exists()) {
+        //   // If IP address sudah ada, redirect ke halaman dimana user sudah melakukan pembelian
+        //   // atau memiliki tagian, dengan membawa ip address 
+        //     return inertia('IpAdress', ['ip_address'=>$ip_address]);
+        // }
+
+  
+      // Save ticket along with QR code file name
       $tiket = Tiket::create([
           'name' => $request->name,
           'wa' => $request->wa,
           'email' => $request->email,
           'event_id' => $request->event_id,
-          'qr_code' => $qr_code, // Simpan nama file QR code
+          'qr_code' => $qr_code, // Save QR code file name
+          'ip_address' => $ip_address, // Save user's IP address
       ]);
   
       // Ambil gross_amount dari model Event yang terkait dengan Tiket
@@ -66,11 +80,9 @@ class TiketController extends Controller
       $snapToken = \Midtrans\Snap::getSnapToken($params);
       $tiket->snap_token = $snapToken;
       $tiket->save();
-      
-
-      return redirect()->route('tiket.checkout', $qr_code);
   
-    }
+      return redirect()->route('tiket.checkout', $qr_code);
+  }
 
   public function checkout($qr_code){
     $tiket = Tiket::where('qr_code', $qr_code)->firstOrFail();
@@ -96,29 +108,27 @@ public function success($qr_code, $snap_token){
           ->generate($qr_code);
   
   // Redirect ke view sukses pembayaran
-  return view('frontend.successPay', compact('tiket', 'qrCode'));
+  return inertia('GetTiket', compact('tiket', 'qrCode'));
+  // return view('frontend.successPay', compact('tiket', 'qrCode'));
 }
 
+public function tiketajg (){
+  $tiket = Tiket::with('event')->where('snap_token', '5748bc64-166f-4b88-8a21-45862a4c4882')->firstOrFail();
+  $event = Event::where('id', $tiket->event_id)->firstOrFail();
 
-  public function getTiket($qr){
-    // Generate QR code
-    $qrCode = QrCode::size(200)
+// Generate QR code
+$qrCode = QrCode::size(200)
     ->color(0, 0, 255)
     ->margin(1)
-        ->generate($qr); // Concatenate the string properly using '.'
+    ->generate('event_1_4UJlOAWpmSja2nJJvtsZ');
 
-    // Render view with QR code
-    return view('pendaftaran.getTiket', compact('qrCode')); 
-  }
-
-//   public function test($qr_code){
-//     $parts = explode('_', $qr_code);
-//     $event_id = $parts[1];
-//     $event = Event::findOrFail($event_id);  
-
-//     return $event;
-// }
+// Simpan QR code sebagai gambar di direktori img/qrCode
+$qrCodePath = public_path('img/qrCode/qr_code.png');
+QrCode::format('png')->size(200)->generate('event_1_4UJlOAWpmSja2nJJvtsZ', $qrCodePath);
 
 
-
+// Mendapatkan URL gambar QR code
+$qrCodeUrl = asset('qr_codes/qr_code.png');
+  return inertia('tiket',['tiket'=> $tiket, 'qrCode'=>$qrCodePath, 'event'=>$event]);
+}
 }

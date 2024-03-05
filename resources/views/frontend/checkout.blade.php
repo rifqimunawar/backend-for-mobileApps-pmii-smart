@@ -15,6 +15,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: transparent
     }
     
     .cardItem {
@@ -64,7 +65,6 @@
   </style>
 </head>
 <body>
-  <body class>
     <div class="cardItem shadow-2xl">
       <div class="gambar">
         {{-- <img src="{{ asset('img/' . $event->img) }}}" alt=""> --}}
