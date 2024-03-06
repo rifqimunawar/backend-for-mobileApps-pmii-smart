@@ -13,6 +13,7 @@ use Illuminate\Validation\ValidationException;
 
 class TiketController extends Controller
 {
+  private const MASTER_IMG_URL = 'http://127.0.0.1:8000/img/';
 
   public function create()
   {
@@ -101,34 +102,23 @@ public function success($qr_code, $snap_token){
   $tiket->statusPay = true;
   $tiket->save();
 
-      // Generate QR code
-      $qrCode = QrCode::size(200)
-      ->color(0, 0, 255)
-      ->margin(1)
-          ->generate($qr_code);
+  $events = Event::where('id', $tiket->event_id)->firstOrFail();
+    $events->img = self::MASTER_IMG_URL . $events->img;
+
+    $qrCode = $qr_code;
   
   // Redirect ke view sukses pembayaran
-  return inertia('GetTiket', compact('tiket', 'qrCode'));
+  return inertia('GetTiket', ['tiket'=> $tiket, 'qrCode'=>$qrCode, 'event'=>$events]);
   // return view('frontend.successPay', compact('tiket', 'qrCode'));
 }
 
-public function tiketajg (){
-  $tiket = Tiket::with('event')->where('snap_token', '5748bc64-166f-4b88-8a21-45862a4c4882')->firstOrFail();
-  $event = Event::where('id', $tiket->event_id)->firstOrFail();
+  public function tiketajg (){
+    $tiket = Tiket::with('event')->where('snap_token', '5748bc64-166f-4b88-8a21-45862a4c4882')->firstOrFail();
+    $events = Event::where('id', $tiket->event_id)->firstOrFail();
+    $events->img = self::MASTER_IMG_URL . $events->img;
 
-// Generate QR code
-$qrCode = QrCode::size(200)
-    ->color(0, 0, 255)
-    ->margin(1)
-    ->generate('event_1_4UJlOAWpmSja2nJJvtsZ');
-
-// Simpan QR code sebagai gambar di direktori img/qrCode
-$qrCodePath = public_path('img/qrCode/qr_code.png');
-QrCode::format('png')->size(200)->generate('event_1_4UJlOAWpmSja2nJJvtsZ', $qrCodePath);
-
-
-// Mendapatkan URL gambar QR code
-$qrCodeUrl = asset('qr_codes/qr_code.png');
-  return inertia('tiket',['tiket'=> $tiket, 'qrCode'=>$qrCodePath, 'event'=>$event]);
-}
+    // Generate QR code
+    $qrCode = 'event_1_4UJlOAWpmSja2nJJvtsZ';
+      return inertia('tiket',['tiket'=> $tiket, 'qrCode'=>$qrCode, 'event'=>$events]);
+  } 
 }
