@@ -619,6 +619,7 @@ class ComposerStaticIniteeb6b0e773314e7f9ea9a7cfdd911d6d
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
+        'App\\Mail\\TiketEmail' => __DIR__ . '/../..' . '/app/Mail/TiketEmail.php',
         'App\\Models\\Event' => __DIR__ . '/../..' . '/app/Models/Event.php',
         'App\\Models\\Tiket' => __DIR__ . '/../..' . '/app/Models/Tiket.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

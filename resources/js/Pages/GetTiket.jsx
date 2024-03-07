@@ -12,8 +12,8 @@ export default function Ticket({ tiket, qrCode, event }) {
     <div className="body">
       <div className="ticket created-by-anniedotexe">
         <div className="left">
-        {/* <div className="image" style={{ backgroundImage: `url(${event.img})` }}> */}
-        <div className="image" style={{ backgroundImage: `url(http://127.0.0.1:8000/img/event_Konser%20Syahrini%20dalam%20menyambut%20bulan%20suci%20ramadhan%202024_1709306452.jpeg)` }}>
+        <div className="image" style={{ backgroundImage: `url(${event.img})` }}>
+        {/* <div className="image" style={{ backgroundImage: `url(http://127.0.0.1:8000/img/event_Konser%20Syahrini%20dalam%20menyambut%20bulan%20suci%20ramadhan%202024_1709306452.jpeg)` }}> */}
             <p className="admit-one">
               <span>E-TIKET</span>
               <span>E-TIKET</span>

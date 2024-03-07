@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TiketEmail;
 use Inertia\Inertia;
 use App\Models\Event;
 use App\Models\Tiket;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Validation\ValidationException;
 
@@ -95,30 +97,53 @@ class TiketController extends Controller
 }
 
 public function success($qr_code, $snap_token){
-  // Ambil data tiket berdasarkan snap token
-  $tiket = Tiket::with('event')->where('snap_token', $snap_token)->firstOrFail();
-  
-  // Update status pembayaran
-  $tiket->statusPay = true;
-  $tiket->save();
+    // Ambil data tiket berdasarkan snap token
+    $tiket = Tiket::with('event')->where('snap_token', $snap_token)->firstOrFail();
+    
+    // Update status pembayaran
+    $tiket->statusPay = true;
+    $tiket->save();
 
-  $events = Event::where('id', $tiket->event_id)->firstOrFail();
-    $events->img = self::MASTER_IMG_URL . $events->img;
-
-    $qrCode = $qr_code;
-  
-  // Redirect ke view sukses pembayaran
-  return inertia('GetTiket', ['tiket'=> $tiket, 'qrCode'=>$qrCode, 'event'=>$events]);
-  // return view('frontend.successPay', compact('tiket', 'qrCode'));
-}
-
-  public function tiketajg (){
-    $tiket = Tiket::with('event')->where('snap_token', '5748bc64-166f-4b88-8a21-45862a4c4882')->firstOrFail();
     $events = Event::where('id', $tiket->event_id)->firstOrFail();
     $events->img = self::MASTER_IMG_URL . $events->img;
+    $qrCode = QrCode::format('svg')->generate($qr_code);
+    $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=' . urlencode($qr_code);
+    $pesan ="
+    <h3>Terima Kasih</h3>
+    <h4>$tiket->name anda sudah melakukan pembelian tiket $events->title</h4>
+    <p>jangan lupa untuk datang pada $events->date, jam $events->time di $events->place</p>
+    <p>scan tiket dibawah ketika memasuki area event</p>
+    <img src=\"$qrCodeUrl\" alt=\"QR Code\">
+    ";
 
-    // Generate QR code
-    $qrCode = 'event_1_4UJlOAWpmSja2nJJvtsZ';
-      return inertia('tiket',['tiket'=> $tiket, 'qrCode'=>$qrCode, 'event'=>$events]);
-  } 
+    $data_email = [
+        'subject' => $events->title,
+        'sender_name' => 'rifqimunawar48@gmail.com',
+        'isi' => $pesan
+    ];
+    Mail::to('$tikets->email')->send(new TiketEmail($data_email));
+    return inertia('GetTiket', ['tiket'=> $tiket, 'qrCode'=>$qrCode, 'event'=>$events]);
+    // return view('frontend.successPay', compact('tiket', 'qrCode'));
+  }
+  public function tiketajg (){
+    $dataTiket = Tiket::where('qr_code', 'event_1_4UJlOAWpmSja2nJJvtsZ')->firstOrFail();
+    $dataEvent = Event::where('id', $dataTiket->event_id)->firstOrFail();
+    $dataEvent->img = self::MASTER_IMG_URL . $dataEvent->img;
+    $dataQrCode = QrCode::format('svg')->generate($dataTiket->qr_code);
+    $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=' . urlencode($dataTiket->qr_code);
+    $pesan ="
+    <h3>Terima Kasih</h3>
+    <h4>$dataTiket->name anda sudah melakukan pembelian tiket $dataEvent->title</h4>
+    <p>jangan lupa untuk datang pada $dataEvent->time di $dataEvent->place</p>
+    <p>jangna lupa untuk membawa tiket anda</p>
+    <img src=\"$qrCodeUrl\" alt=\"QR Code\">
+    ";
+    $data_email = [
+        'subject' => $dataEvent->title,
+        'sender_name' => 'rifqimunawar48@gmail.com',
+        'isi' => $pesan
+    ];
+    Mail::to('rifqimunawar47@gmail.com')->send(new TiketEmail($data_email));
+    return view('mail.test-doang', compact('data_email', 'dataTiket', 'dataEvent', 'dataQrCode'));
+  }
 }
