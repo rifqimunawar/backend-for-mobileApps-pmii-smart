@@ -38,16 +38,16 @@ class TiketController extends Controller
           $qr_code = 'event_' . $request->event_id . '_' . Str::random(20); 
       }
   
+      $event_id = $request->event_id;
       // Get user IP address from https://api.ipify.org/
       $ip_address_response = Http::get('https://api.ipify.org/');
       $ip_address = $ip_address_response->body();
           
-        // // Check if IP address already exists
-        // if (Tiket::where('ip_address', $ip_address)->exists()) {
-        //   // If IP address sudah ada, redirect ke halaman dimana user sudah melakukan pembelian
-        //   // atau memiliki tagian, dengan membawa ip address 
-        //     return inertia('IpAdress', ['ip_address'=>$ip_address]);
-        // }
+        // Check if IP address already exists
+        if (Tiket::where('ip_address', $ip_address)->exists() && Tiket::where('event_id', $event_id)->exists()) {
+            return inertia('IpAdress', ['ip_address' => $ip_address]);
+        }
+      
 
   
       // Save ticket along with QR code file name
@@ -57,7 +57,6 @@ class TiketController extends Controller
           'email' => $request->email,
           'event_id' => $request->event_id,
           'qr_code' => $qr_code, // Save QR code file name
-          'ip_address' => $ip_address, // Save user's IP address
       ]);
   
       // Ambil gross_amount dari model Event yang terkait dengan Tiket
@@ -95,18 +94,25 @@ class TiketController extends Controller
     // return Inertia::render('EventCheckout', ['tiket'=>$tiket]);
     return view ('frontend.checkout', compact('tiket', 'event'));
 }
-
-public function success($qr_code, $snap_token){
+  public function success($qr_code, $snap_token){
     // Ambil data tiket berdasarkan snap token
     $tiket = Tiket::with('event')->where('snap_token', $snap_token)->firstOrFail();
     
     // Update status pembayaran
     $tiket->statusPay = true;
+    
+    // Mengambil alamat IP pengguna
+    $ip_address_response = Http::get('https://api.ipify.org/');
+    $ip_address = $ip_address_response->body();
+    
+    // Memperbarui alamat IP tiket
+    $tiket->ip_address = $ip_address;
+    
     $tiket->save();
 
     $events = Event::where('id', $tiket->event_id)->firstOrFail();
+    $events->update(['jumlah_tiket' => $events->jumlah_tiket - 1]);
     $events->img = self::MASTER_IMG_URL . $events->img;
-    $qrCode = QrCode::format('svg')->generate($qr_code);
     $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=' . urlencode($qr_code);
     $pesan ="
     <h3>Terima Kasih</h3>
@@ -121,10 +127,10 @@ public function success($qr_code, $snap_token){
         'sender_name' => 'rifqimunawar48@gmail.com',
         'isi' => $pesan
     ];
-    Mail::to('$tikets->email')->send(new TiketEmail($data_email));
-    return inertia('GetTiket', ['tiket'=> $tiket, 'qrCode'=>$qrCode, 'event'=>$events]);
-    // return view('frontend.successPay', compact('tiket', 'qrCode'));
+    Mail::to($tiket->email)->send(new TiketEmail($data_email));
+    return inertia('GetTiket', ['tiket'=> $tiket, 'event'=>$events]);
   }
+
   public function tiketajg (){
     $dataTiket = Tiket::where('qr_code', 'event_1_4UJlOAWpmSja2nJJvtsZ')->firstOrFail();
     $dataEvent = Event::where('id', $dataTiket->event_id)->firstOrFail();

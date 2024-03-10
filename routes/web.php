@@ -34,6 +34,9 @@ Route::post('/transaction/store', [TiketController::class, 'store'])->name('tran
 Route::get('/event/checkout/{qr_code}', [TiketController::class, 'checkout'])->name('tiket.checkout');
 Route::get('/tiketajg', [TiketController::class, 'tiketajg']);
 
+Route::get('/gagal', function () {
+    return inertia('IpAdress');
+});
 Route::get('/testFunction/{qr_code}', [TiketController::class, 'test'])->name('test');
 
 

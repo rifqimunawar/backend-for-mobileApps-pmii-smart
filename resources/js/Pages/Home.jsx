@@ -9,6 +9,8 @@ export default function Home({ events }) {
     return <div>No events available</div>
   }
 
+  // console.log(events)
+
   return (
     <div>
       <NavbarComponent />
