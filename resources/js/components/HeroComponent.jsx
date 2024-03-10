@@ -18,28 +18,28 @@ export default function HeroComponent() {
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="/docs/images/carousel/carousel-2.svg"
+              src="https://www.ruparupa.com/blog/wp-content/uploads/2022/11/anthony-delanoix-hzgs56Ze49s-unsplash.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="/docs/images/carousel/carousel-3.svg"
+              src="https://koran-jakarta.com/images/article/3-konser-musik-indonesia-yang-dibatalkan-demi-keselamatan-penonton-221109144938.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="/docs/images/carousel/carousel-4.svg"
+              src="https://thumb.viva.id/intipseleb/1265x711/2023/06/05/647d7e19215d7-fiersa-besari.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="/docs/images/carousel/carousel-5.svg"
+              src="https://api2.kemenparekraf.go.id/storage/app/uploads/public/64c/741/a14/64c741a1408f3621199052.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />

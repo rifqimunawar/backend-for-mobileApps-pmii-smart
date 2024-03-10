@@ -52,10 +52,12 @@ class ReactController extends Controller
       return Inertia::render('EventChoise', ['eventChoise'=>$event, ]);
     }
 
-    public function success($id){
-      $tiket = Tiket::findOrFail($id);
-      return Inertia::render('RegisterSuceess', ['tiket'=>$tiket]);
-  }
-  
-    
+    public function about(){
+      return inertia('About');
+    }
+
+    public function contact(){
+      return inertia('About');
+    }
+
 }

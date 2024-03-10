@@ -3,6 +3,7 @@ import NavbarComponent from '../components/NavbarComponent'
 import { Link, useForm } from '@inertiajs/react'
 import { HiCalendar, HiClock, HiLocationMarker } from 'react-icons/hi'
 import { format } from 'date-fns'
+import FooterComponent from '../components/FooterComponent'
 
 export default function EventChoise({ eventChoise }) {
   const { data, setData, post, processing } = useForm({
@@ -85,7 +86,7 @@ export default function EventChoise({ eventChoise }) {
                   value={data.name}
                   onChange={handleChange}
                   placeholder="Nama Lengkap"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full input input-bordered bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </label>
 
@@ -98,7 +99,7 @@ export default function EventChoise({ eventChoise }) {
                   onChange={handleChange}
                   required
                   placeholder="Type here"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </label>
 
@@ -111,7 +112,7 @@ export default function EventChoise({ eventChoise }) {
                   onChange={handleChange}
                   required
                   placeholder="Type here"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full input input-bordered bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </label>
 
@@ -128,6 +129,7 @@ export default function EventChoise({ eventChoise }) {
           </div>
         </div>
       </div>
+      <FooterComponent/>
     </div>
   )
 }

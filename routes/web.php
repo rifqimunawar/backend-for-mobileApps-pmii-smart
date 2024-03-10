@@ -27,6 +27,8 @@ use App\Http\Controllers\ReactController;
 Route::get('/', [ReactController::class,'home']);
 Route::get('/event/{id}', [ReactController::class,'eventID']);
 Route::get('/event/choice/{id}', [ReactController::class,'event_choise']);
+Route::get('/about', [ReactController::class,'about']);
+Route::get('/contact', [ReactController::class,'contact']);
 
 
 Route::get('/transaction/create', [TiketController::class, 'create'])->name('transaction.create');

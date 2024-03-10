@@ -1,16 +1,14 @@
 import { Link } from '@inertiajs/react'
 import React from 'react'
-import NavbarComponent from '../components/NavbarComponent'
 import HeroComponent from '../components/HeroComponent'
-import EventCardComponent from '../components/EventCardComponent' // Import EventCard
+import EventCardComponent from '../components/EventCardComponent'
+import FooterComponent from '../components/FooterComponent'
+import NavbarComponent from '../components/NavbarComponent'
 
 export default function Home({ events }) {
   if (!events || events.length === 0) {
     return <div>No events available</div>
   }
-
-  // console.log(events)
-
   return (
     <div>
       <NavbarComponent />
@@ -26,6 +24,7 @@ export default function Home({ events }) {
           ))}
         </div>
       </div>
+      <FooterComponent/>
     </div>
   )
 }

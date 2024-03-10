@@ -1,5 +1,6 @@
 import React from 'react'
 import NavbarComponent from '../components/NavbarComponent'
+import FooterComponent from '../components/FooterComponent'
 import { Link } from '@inertiajs/react'
 import { HiCalendar, HiClock, HiLocationMarker } from 'react-icons/hi'
 import { format } from 'date-fns'
@@ -68,6 +69,7 @@ export default function EventDetail({ event_details }) {
           </div>
         </div>
       </div>
+      <FooterComponent/>
     </div>
   )
 }

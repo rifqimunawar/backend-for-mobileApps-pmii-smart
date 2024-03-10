@@ -11,12 +11,16 @@
     <link rel="stylesheet" href="{{ asset('css/react.css') }}">
     <title>React-Inertia</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <html data-theme="retro"></html>
+    <html data-theme="retro">
+
+    </html>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 
 <body>
     @inertia
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-UcMGRUflT9EkCNZ3"></script>
-  </body>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
 </html>
