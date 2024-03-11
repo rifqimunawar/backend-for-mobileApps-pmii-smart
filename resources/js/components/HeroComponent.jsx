@@ -11,35 +11,35 @@ export default function HeroComponent() {
         <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2017/12/Blog_Acara-Konser-Musik-Tahunan-di-Indonesia-buat-Pecinta-Musik.jpg"
+              src="http://127.0.0.1:8000/img/hero1.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://www.ruparupa.com/blog/wp-content/uploads/2022/11/anthony-delanoix-hzgs56Ze49s-unsplash.jpg"
+              src="http://127.0.0.1:8000/img/hero2.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://koran-jakarta.com/images/article/3-konser-musik-indonesia-yang-dibatalkan-demi-keselamatan-penonton-221109144938.jpg"
+              src="http://127.0.0.1:8000/img/hero3.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://thumb.viva.id/intipseleb/1265x711/2023/06/05/647d7e19215d7-fiersa-besari.jpg"
+              src="http://127.0.0.1:8000/img/hero4.webp"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
           </div>
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="https://api2.kemenparekraf.go.id/storage/app/uploads/public/64c/741/a14/64c741a1408f3621199052.jpg"
+              src="http://127.0.0.1:8000/img/hero5.jpg"
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />

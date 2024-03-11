@@ -57,7 +57,7 @@ class ReactController extends Controller
     }
 
     public function contact(){
-      return inertia('About');
+      return inertia('Contact');
     }
 
 }

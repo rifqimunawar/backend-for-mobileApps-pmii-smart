@@ -8,6 +8,7 @@
     @inertiaHead
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{ asset('css/react.css') }}">
     <title>React-Inertia</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
