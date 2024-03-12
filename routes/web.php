@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
@@ -48,9 +49,7 @@ Route::get('/tiket/create', [TiketController::class,'create'])->name('tiketcreat
 Route::post('/tiket/store', [TiketController::class,'store'])->name('tiketStore');
 Route::get('/tiket/getTiket/{tiketID}', [TiketController::class,'getTiket'])->name('getTiket');
 
-Route::get('/dashboard', function () {
-    return view('dashboard.admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'role:super admin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

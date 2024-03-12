@@ -6,6 +6,7 @@ import FooterComponent from '../components/FooterComponent'
 import NavbarComponent from '../components/NavbarComponent'
 
 export default function Home({ events }) {
+  console.log(events)
   if (!events || events.length === 0) {
     return <div>No events available</div>
   }

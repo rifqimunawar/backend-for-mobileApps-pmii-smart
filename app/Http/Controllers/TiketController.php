@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\TiketEmail;
 use Inertia\Inertia;
 use App\Models\Event;
 use App\Models\Tiket;
+use App\Mail\TiketEmail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Config;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Validation\ValidationException;
 
 class TiketController extends Controller
 {
-  private const MASTER_IMG_URL = 'http://127.0.0.1:8000/img/';
-
   public function create()
   {
       return inertia('EventForm');
@@ -112,7 +111,7 @@ class TiketController extends Controller
 
     $events = Event::where('id', $tiket->event_id)->firstOrFail();
     $events->update(['jumlah_tiket' => $events->jumlah_tiket - 1]);
-    $events->img = self::MASTER_IMG_URL . $events->img;
+    $events->img = config('app.MASTER_IMG_URL') . 'img/' . $events->img;
     $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=' . urlencode($qr_code);
     $pesan ="
     <h3>Terima Kasih</h3>
@@ -134,7 +133,7 @@ class TiketController extends Controller
   public function tiketajg (){
     $dataTiket = Tiket::where('qr_code', 'event_1_4UJlOAWpmSja2nJJvtsZ')->firstOrFail();
     $dataEvent = Event::where('id', $dataTiket->event_id)->firstOrFail();
-    $dataEvent->img = self::MASTER_IMG_URL . $dataEvent->img;
+    $dataEvent->img = config('app.MASTER_IMG_URL') . 'img/' . $dataEvent->img;
     $dataQrCode = QrCode::format('svg')->generate($dataTiket->qr_code);
     $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=' . urlencode($dataTiket->qr_code);
     $pesan ="

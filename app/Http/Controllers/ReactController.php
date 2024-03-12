@@ -2,25 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Config; // Import Config facade
 use Inertia\Inertia;
 use App\Models\Event;
-use App\Models\Tiket;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class ReactController extends Controller
 {
-    // Define the master image URL as a constant
-    private const MASTER_IMG_URL = 'http://127.0.0.1:8000/img/';
 
     public function home() {
         $events = Event::latest()->get();
         // Iterate through events and update image URLs
         foreach ($events as $event) {
-            $event->img = self::MASTER_IMG_URL . $event->img;
+          $event->img = config('app.MASTER_IMG_URL') . 'img/' . $event->img;
         }
-        // Pass the updated events data to the Inertia view
         return Inertia::render('Home', ['events' => $events]); 
     }
 
@@ -33,7 +28,7 @@ class ReactController extends Controller
             return response()->json(['message' => 'Event not found'], 404);
         }
         // Update the image URL
-        $event->img = self::MASTER_IMG_URL . $event->img;
+        $event->img = config('app.MASTER_IMG_URL') . 'img/' . $event->img;
         // Pass the updated event data to the Inertia view
         return Inertia::render('EventDetail', ['event_details' => $event]);
     }
@@ -47,7 +42,7 @@ class ReactController extends Controller
       if (!$event) {
           return response()->json(['message' => 'Event not found'], 404);
       }
-      $event->img = self::MASTER_IMG_URL . $event->img;
+      $event->img = config('app.MASTER_IMG_URL') . 'img/' . $event->img;
 
       return Inertia::render('EventChoise', ['eventChoise'=>$event, ]);
     }
@@ -59,5 +54,4 @@ class ReactController extends Controller
     public function contact(){
       return inertia('Contact');
     }
-
 }

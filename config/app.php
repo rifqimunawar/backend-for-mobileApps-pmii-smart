@@ -189,4 +189,7 @@ return [
         'Image' => 'Intervention\Image\Facades\Image'
     ])->toArray(),
 
+
+    'MASTER_IMG_URL' => env('MASTER_IMG_URL'),
+
 ];

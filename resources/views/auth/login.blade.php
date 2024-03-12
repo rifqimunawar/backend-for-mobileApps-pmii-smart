@@ -5,12 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Login</title>
 </head>
 
 <body class="card-body">
-    <form method="POST" action="{{ route('login') }}">
+
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="https://storage.nu.or.id/storage/post/1_1/mid/logo-baru-uninus-news18112023_1700288683.webp"
+                    id="icon" alt="User Icon" />
+            </div>
+
+            <!-- Login Form -->
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <input type="email" id="email" class="fadeIn second" name="email" placeholder="email">
+                @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <button type="submit" class="fadeIn fourth btn btn-primary m-3" value="Log In">Login</button>
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="#">Forgot Password?</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    {{-- <form method="POST" action="{{ route('login') }}">
         @csrf
         <!-- Email input -->
         <div class="form-outline mb-4">
@@ -69,7 +108,9 @@
                 <i class="fab fa-github"></i>
             </button>
         </div>
-    </form>
+    </form> --}}
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 
 </html>
