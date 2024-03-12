@@ -10,14 +10,25 @@ use Illuminate\Http\Request;
 class ReactController extends Controller
 {
 
-    public function home() {
-        $events = Event::latest()->get();
-        // Iterate through events and update image URLs
-        foreach ($events as $event) {
-          $event->img = config('app.MASTER_IMG_URL') . 'img/' . $event->img;
-        }
-        return Inertia::render('Home', ['events' => $events]); 
+  public function home() {
+    $imageUrls = [
+        'https://karcisnya.iconnet-operation.com/img/hero1.jpg?',
+        'https://karcisnya.iconnet-operation.com/img/hero2.jpg?',
+        'https://karcisnya.iconnet-operation.com/img/hero3.jpg?',
+        'https://karcisnya.iconnet-operation.com/img/hero4.webp?',
+        'https://karcisnya.iconnet-operation.com/img/hero5.jpg?'
+    ];
+
+    $events = Event::latest()->get();
+
+    // Iterate through events and update image URLs
+    foreach ($events as $event) {
+        $event->img = config('app.MASTER_IMG_URL') . 'img/' . $event->img;
     }
+
+    return Inertia::render('Home', ['events' => $events, 'imageUrls' => $imageUrls]); 
+}
+
 
     public function eventID($id){
         // Find the event by ID

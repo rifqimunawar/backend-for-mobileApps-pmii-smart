@@ -5,16 +5,20 @@ import EventCardComponent from '../components/EventCardComponent'
 import FooterComponent from '../components/FooterComponent'
 import NavbarComponent from '../components/NavbarComponent'
 
-export default function Home({ events }) {
+export default function Home({ events, imageUrls }) {
   console.log(events)
   if (!events || events.length === 0) {
     return <div>No events available</div>
+  }
+
+  if (!imageUrls || imageUrls.length === 0) {
+    return <div>No imageUrls available</div>
   }
   return (
     <div>
       <NavbarComponent />
       <div className="container mx-auto px-8 mt-10">
-        <HeroComponent />
+      <HeroComponent images={imageUrls} />
         <h1 className="mt-10 mb-5 card-title text-xl">Pilih Konser</h1>
         {/* Render EventCard for each event */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 gap-5">

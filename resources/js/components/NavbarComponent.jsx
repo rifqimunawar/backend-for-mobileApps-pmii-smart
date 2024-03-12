@@ -12,7 +12,7 @@ export default function NavbarComponent() {
           <img
             src="https://karcisnya.iconnet-operation.com/img/logo.png"
             className="h-8"
-            alt="Flowbite Logo"
+            alt="Logo"
           />
         </Link>
         <button
@@ -43,7 +43,7 @@ export default function NavbarComponent() {
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-purple-300 rounded-lg bg-purple-300 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:b-purple-300 dark:bg-purple-300 md:dark:bg-purple-300 dark:border-purple-300">
             <li>
               <a
-                href="#"
+                href={'/'}
                 className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
                 aria-current="page"
               >
