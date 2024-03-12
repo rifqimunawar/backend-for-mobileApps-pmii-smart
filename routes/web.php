@@ -66,6 +66,7 @@ Route::middleware(['auth', 'role:super admin'])->group(function () {
     Route::get('/event', [EventController::class,'index'])->name('event.index');
     Route::get('/eventCreate', [EventController::class,'create'])->name('event.create');
     Route::post('/event/store', [EventController::class,'store'])->name('event.store');
+    Route::get('/event/detail/{id}', [EventController::class,'detail'])->name('event.detail');
     Route::get('/event/edit/{id}', [EventController::class,'edit'])->name('event.edit');
     Route::put('/event/update/{id}', [EventController::class,'update'])->name('event.update');
     Route::delete('/event/delete/{id}', [EventController::class,'destroy'])->name('event.destroy');

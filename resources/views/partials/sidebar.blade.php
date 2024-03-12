@@ -35,11 +35,11 @@
                   <span>Scan QR</span></a>
           </li>
 
-          <li class="nav-item">
-              <a class="nav-link" href="{{ route('tiketcreate') }}">
+          {{-- <li class="nav-item">
+              <a class="nav-link" href="">
                   <i class="fas fa-user"></i>
-                  <span>Daftar</span></a>
-          </li>
+                  <span>Pengunjung</span></a>
+          </li> --}}
 
           <li class="nav-item">
               <a class="nav-link" href="{{ route('event.index') }}">

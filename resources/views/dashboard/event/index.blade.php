@@ -31,11 +31,12 @@
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td class="">{{ $index->title }}</td>
                             <td class="text-center">
-                              <img src="{{ asset('img/' . $index->img) }}" alt="" style="width: 70px">
+                              <img src="{{ asset('img/' . $index->img) }}" alt="" style="width: 70px; height:50px; object-fit:cover">
                           </td>                          
                             <td class="text-center">
                                 {{-- <form action="{{ route('user.destroy', $index->id) }}" method="POST"> --}}
                                 <form action="{{ route('event.destroy', $index->id) }}" method="POST">
+                                    <a href="{{ route('event.detail', $index->id) }}" class="btn btn-info btn-sm">Detail</a>
                                     <a href="{{ route('event.edit', $index->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                     @csrf
                                     @method('DELETE')

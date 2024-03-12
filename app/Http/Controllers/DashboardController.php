@@ -13,7 +13,6 @@ class DashboardController extends Controller
       $totalTiket = Event::sum('jumlah_tiket'); 
       $totalPenjualanTiket = Tiket::where('statusPay', 1)->count();
       $tiketBelumTerjual = $totalTiket - $totalPenjualanTiket;
-
       $eventTitle=Event::all();
 
       return view('dashboard.admin.dashboard', compact(

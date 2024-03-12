@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Tiket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -104,5 +105,14 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         $event->delete();
         return redirect()->route('event.index')->with('success', 'Event successfully deleted!');
+    }
+
+    public function detail($id){
+
+      $event = Event::findOrFail($id);
+      $tiket = Tiket::where('event_id', $id)->where('statusPay', '1')->get();
+
+      // dd($tiket);
+      return view('dashboard.event.detail', compact('event', 'tiket'));
     }
 }
