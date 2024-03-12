@@ -27,15 +27,15 @@
   background-color: bisque;
 }
 .cardDescription{
-  width: 620px;
+  width: auto;
   padding: 30px;
   margin-bottom: auto;
   background-color: bisque;
 }
 .cardImg{
   margin: -30px;
-  width: 288px;
-  height: 150px;
+  width: auto;
+  height: 140px;
   object-fit: cover;
 }
 .card-body{
@@ -58,7 +58,6 @@
   margin-top: 20px;
   border-radius: 20px;
   width: 550px;
-  padding: 30px;
   margin-bottom: auto;
   background-color: bisque;
   

@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react'
 
 export default function HeroComponent() {
-  const [images, setImages] = useState([])
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
-    // Define the image URLs
+    // Define the image URLs with a unique parameter
     const imageUrls = [
-      'https://karcisnya.iconnet-operation.com/img/hero1.jpg',
-      'https://karcisnya.iconnet-operation.com/img/hero2.jpg',
-      'https://karcisnya.iconnet-operation.com/img/hero3.jpg',
-      'https://karcisnya.iconnet-operation.com/img/hero4.webp',
-      'https://karcisnya.iconnet-operation.com/img/hero5.jpg',
-    ]
+      `https://karcisnya.iconnet-operation.com/img/hero1.jpg?${Date.now()}`,
+      `https://karcisnya.iconnet-operation.com/img/hero2.jpg?${Date.now()}`,
+      `https://karcisnya.iconnet-operation.com/img/hero3.jpg?${Date.now()}`,
+      `https://karcisnya.iconnet-operation.com/img/hero4.webp?${Date.now()}`,
+      `https://karcisnya.iconnet-operation.com/img/hero5.jpg?${Date.now()}`
+    ];
 
-    setImages(imageUrls)
-  }, [])
+    setImages(imageUrls);
+  }, []);
 
   return (
     <div>

@@ -12,8 +12,8 @@ export default function Ticket({ tiket, qrCode, event }) {
 
   return (
     <div className="body">
-      <div className="ticket created-by-anniedotexe">
-        <div className="left">
+      <div className="ticket created-by-anniedotexe flex">
+        <div className="left flex-grow">
         <div className="image" style={{ backgroundImage: `url(${event.img})` }}>
             <p className="admit-one">
               <span>E-TIKET</span>

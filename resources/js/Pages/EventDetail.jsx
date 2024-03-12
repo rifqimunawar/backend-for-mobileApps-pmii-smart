@@ -10,13 +10,13 @@ export default function EventDetail({ event_details }) {
     <div>
       <NavbarComponent />
       <div className="container mx-auto flex flex-col md:flex-row justify-center mt-6 mb-9">
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 p-6">
           <img
             src={event_details.img}
             alt=""
             className="eventImg shadow-xl "
           />
-          <div className="mt-5 cardDescription p-2 rounded-2xl shadow-lg">
+          <div className="mt-5 cardDescription rounded-2xl shadow-lg">
             <p className="text-base">{event_details.description}</p>
           </div>
         </div>

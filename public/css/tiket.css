@@ -8,7 +8,7 @@
 }
 
 .body {
-	height: 100vh;
+	height: 200vh;
 	display: grid;
 	font-family: "Staatliches", cursive;
 	/* background: #d83565; */
@@ -18,11 +18,15 @@
 }
 
 .ticket {
-	margin: auto;
-	display: flex;
-	background: white;
-	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transform: rotate(-90deg); /* Memutar tiket sebesar 90 derajat */
+  transform-origin: center; /* Menentukan titik pusat rotasi di tengah */
+  margin: auto;
+  display: flex;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  font-size: 12px;
 }
+
 
 .left {
 	display: flex;

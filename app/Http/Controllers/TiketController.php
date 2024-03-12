@@ -131,24 +131,32 @@ class TiketController extends Controller
   }
 
   public function tiketajg (){
-    $dataTiket = Tiket::where('qr_code', 'event_1_4UJlOAWpmSja2nJJvtsZ')->firstOrFail();
-    $dataEvent = Event::where('id', $dataTiket->event_id)->firstOrFail();
-    $dataEvent->img = config('app.MASTER_IMG_URL') . 'img/' . $dataEvent->img;
-    $dataQrCode = QrCode::format('svg')->generate($dataTiket->qr_code);
-    $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=' . urlencode($dataTiket->qr_code);
-    $pesan ="
-    <h3>Terima Kasih</h3>
-    <h4>$dataTiket->name anda sudah melakukan pembelian tiket $dataEvent->title</h4>
-    <p>jangan lupa untuk datang pada $dataEvent->time di $dataEvent->place</p>
-    <p>jangna lupa untuk membawa tiket anda</p>
-    <img src=\"$qrCodeUrl\" alt=\"QR Code\">
-    ";
-    $data_email = [
-        'subject' => $dataEvent->title,
-        'sender_name' => 'rifqimunawar48@gmail.com',
-        'isi' => $pesan
-    ];
-    Mail::to('rifqimunawar47@gmail.com')->send(new TiketEmail($data_email));
-    return view('mail.test-doang', compact('data_email', 'dataTiket', 'dataEvent', 'dataQrCode'));
+    // =================== Untuk pengetesan Email=============
+    // $dataTiket = Tiket::where('qr_code', 'event_1_4UJlOAWpmSja2nJJvtsZ')->firstOrFail();
+    // $dataEvent = Event::where('id', $dataTiket->event_id)->firstOrFail();
+    // $dataEvent->img = config('app.MASTER_IMG_URL') . 'img/' . $dataEvent->img;
+    // $dataQrCode = QrCode::format('svg')->generate($dataTiket->qr_code);
+    // $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=' . urlencode($dataTiket->qr_code);
+    // $pesan ="
+    // <h3>Terima Kasih</h3>
+    // <h4>$dataTiket->name anda sudah melakukan pembelian tiket $dataEvent->title</h4>
+    // <p>jangan lupa untuk datang pada $dataEvent->time di $dataEvent->place</p>
+    // <p>jangna lupa untuk membawa tiket anda</p>
+    // <img src=\"$qrCodeUrl\" alt=\"QR Code\">
+    // ";
+    // $data_email = [
+    //     'subject' => $dataEvent->title,
+    //     'sender_name' => 'rifqimunawar48@gmail.com',
+    //     'isi' => $pesan
+    // ];
+    // Mail::to('rifqimunawar47@gmail.com')->send(new TiketEmail($data_email));
+    // return view('mail.test-doang', compact('data_email', 'dataTiket', 'dataEvent', 'dataQrCode'));
+
+    // ======================untuk pengetesan tiket=====================
+    $tiket = Tiket::with('event')->where('snap_token', '3cde0657-15e7-4fa8-a2a6-4ad999d2cfe2')->firstOrFail();
+    $qrCode = $tiket->qr_code;
+    $events = Event::where('id', $tiket->event_id)->firstOrFail();
+    $events->img = config('app.MASTER_IMG_URL') . 'img/' . $events->img;
+    return inertia('GetTiket', ['tiket'=> $tiket, 'event'=>$events, 'qrCode'=>$qrCode]);
   }
 }

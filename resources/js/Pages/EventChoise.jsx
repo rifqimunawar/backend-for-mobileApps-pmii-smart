@@ -40,8 +40,8 @@ export default function EventChoise({ eventChoise }) {
     <div>
       <NavbarComponent />
       <div className="container mx-auto flex flex-col md:flex-row justify-center mt-6">
-        <div className="md:w-1/2">
-          <div className="cardDescription mt-5 p-2 rounded-2xl shadow-lg">
+        <div className="md:w-1/2 p-6">
+          <div className="cardDescription mt-5 rounded-2xl shadow-lg">
             <div className="flex">
               <img
                 src={eventChoise.img}
@@ -73,7 +73,7 @@ export default function EventChoise({ eventChoise }) {
         </div>
 
         <div className="md:w-1/2 flex justify-center">
-          <div className="cardForm shadow-xl mb-8">
+          <div className="cardForm p-6 shadow-xl mb-8">
             <h1 className="">Detail Pemesan</h1>
 
             <form onSubmit={handleSubmit} className="p-4">

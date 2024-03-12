@@ -10,7 +10,7 @@ export default function NavbarComponent() {
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <img
-            src="http://127.0.0.1:8000/img/logo.png"
+            src="https://karcisnya.iconnet-operation.com/img/logo.png"
             className="h-8"
             alt="Flowbite Logo"
           />
