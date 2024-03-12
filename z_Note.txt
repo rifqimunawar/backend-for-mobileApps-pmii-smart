@@ -1,0 +1,3 @@
+Untuk Mengubah midtrans menjadi production
+-> buka env swtich producntion dan development
+->checkout.blade di views/frontend/, switch ke mode producttion

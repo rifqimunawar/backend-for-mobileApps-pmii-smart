@@ -104,7 +104,8 @@ export default function EventChoise({ eventChoise }) {
               </label>
 
               <label className="block mb-3">
-                <span className="block font-semibold mb-1">Email</span>
+                <span className="block font-semibold">Email Aktif</span>
+                <p className='italic color text-red-400'>tiket akan dikirim ke email anda</p>
                 <input
                   type="email"
                   id="email"
