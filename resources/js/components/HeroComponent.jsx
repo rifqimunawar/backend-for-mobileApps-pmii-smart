@@ -6,11 +6,11 @@ export default function HeroComponent() {
   useEffect(() => {
     // Define the image URLs
     const imageUrls = [
-      'http://127.0.0.1:8000/img/hero1.jpg',
-      'http://127.0.0.1:8000/img/hero2.jpg',
-      'http://127.0.0.1:8000/img/hero3.jpg',
-      'http://127.0.0.1:8000/img/hero4.webp',
-      'http://127.0.0.1:8000/img/hero5.jpg',
+      'https://karcisnya.iconnet-operation.com/img/hero1.jpg',
+      'https://karcisnya.iconnet-operation.com/img/hero2.jpg',
+      'https://karcisnya.iconnet-operation.com/img/hero3.jpg',
+      'https://karcisnya.iconnet-operation.com/img/hero4.webp',
+      'https://karcisnya.iconnet-operation.com/img/hero5.jpg',
     ]
 
     setImages(imageUrls)
