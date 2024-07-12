@@ -30,7 +30,10 @@ export default function Ticket({ tiket, qrCode, event }) {
 
   return (
     <div className="body">
-      <div className="ticket created-by-anniedotexe">
+      <div
+        className="ticket created-by-anniedotexe"
+        style={{ transform: 'rotate(90deg)' }}
+      >
         <div className="left">
           <div
             className="image"

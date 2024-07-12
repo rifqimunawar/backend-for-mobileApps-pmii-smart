@@ -53,9 +53,9 @@ Konser memiliki tujuan untuk menghibur penonton. Selain itu, konser juga dapat m
                 'place' => 'Lapang Segitiga Uninus',
                 'rp' => 175000,
                 'penyelenggara' => 'Birokrasi Uninus',
-                'jumlah_tiket' => 200,
+                'jumlah_tiket' => 166,
                 'created_at' => '2024-03-02 23:35:18',
-                'updated_at' => '2024-03-07 05:26:40',
+                'updated_at' => '2024-07-12 15:27:39',
             ),
             2 => 
             array (
@@ -68,9 +68,24 @@ Konser memiliki tujuan untuk menghibur penonton. Selain itu, konser juga dapat m
                 'place' => 'aaa',
                 'rp' => 25000,
                 'penyelenggara' => 'aaa',
-                'jumlah_tiket' => 11,
+                'jumlah_tiket' => -3,
                 'created_at' => '2024-03-06 23:25:37',
-                'updated_at' => '2024-07-09 17:11:50',
+                'updated_at' => '2024-07-09 17:56:48',
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'title' => 'Ekspectanica',
+                'img' => 'event_1720548930.jpg',
+                'description' => 'qqq',
+                'date' => '2024-07-31',
+                'time' => '17:00:00',
+                'place' => 'Bandung',
+                'rp' => 10000,
+                'penyelenggara' => 'Dema',
+                'jumlah_tiket' => 26,
+                'created_at' => '2024-07-09 18:15:30',
+                'updated_at' => '2024-07-12 15:07:23',
             ),
         ));
         

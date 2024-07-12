@@ -94,47 +94,16 @@
 </head>
 
 <body>
-    <div class="cardItem shadow-2xl">
-        <div class="gambar">
-            {{-- <img src="{{ asset('img/' . $event->img) }}}" alt=""> --}}
-            <img src="{{ asset('img/' . $event->img) }}" alt="">
-        </div>
-        <div class="keterangan">
-            <div class="konf">
-                <h1>Konfirmasi Pembayaran</h1>
-            </div>
-            <table>
-                <tr>
-                    <td>Nama </td>
-                    <td>: {{ $tiket->name }}</td>
-                </tr>
-                <tr>
-                    <td>Phone </td>
-                    <td>: {{ $tiket->wa }}</td>
-                </tr>
-                <tr>
-                    <td>Email </td>
-                    <td>: {{ $tiket->email }}</td>
-                </tr>
-                <tr>
-                    <td>Harga </td>
-                    <td>: {{ $event->rp }}</td>
-                </tr>
-            </table>
-            <div class="button">
-                <button class="btn btn-secondary" id="pay-button">Konfirmasi Pembayaran</button>
-            </div>
 
-        </div>
-    </div>
-
+    <span class="loading loading-spinner loading-lg"></span>
+    <button id="pay-button"> </button>
     <!-- TODO: gunakan yang ini untuk mode productions" -->
     {{-- <script src="https://app.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script> --}}
-    
+
     <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
-    
-    
+
+
     <script type="text/javascript">
         document.getElementById('pay-button').onclick = function() {
             // SnapToken acquired from previous step
@@ -157,6 +126,10 @@
                 }
             });
         };
+
+        window.addEventListener('load', function() {
+            document.getElementById('pay-button').click();
+        });
     </script>
 </body>
 

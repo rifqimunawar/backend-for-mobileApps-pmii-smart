@@ -18,6 +18,24 @@ class UserTiketsTableSeeder extends Seeder
 
         \DB::table('user_tikets')->delete();
         
+        \DB::table('user_tikets')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'user_id' => 1,
+                'tiket_id' => 10,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'user_id' => 1,
+                'tiket_id' => 13,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+        ));
         
         
     }
