@@ -35,22 +35,6 @@ class TiketsTableSeeder extends Seeder
                 'created_at' => '2024-07-09 17:01:48',
                 'updated_at' => '2024-07-09 17:01:49',
             ),
-            1 => 
-            array (
-                'id' => 2,
-                'name' => 'a',
-                'wa' => '99',
-                'email' => 'rifqi@gmail.com',
-                'qr_code' => 'event_3_1K5AzawUOUlFSIvWUpht',
-                'status' => 0,
-                'user_id' => NULL,
-                'event_id' => '3',
-                'snap_token' => '46579916-ed8c-40a9-b88c-11dd11841ba5',
-                'statusPay' => 0,
-                'ip_address' => NULL,
-                'created_at' => '2024-07-09 17:12:18',
-                'updated_at' => '2024-07-09 17:12:19',
-            ),
         ));
         
         

@@ -45,19 +45,6 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2024-03-02 23:28:36',
                 'updated_at' => '2024-03-02 23:28:36',
             ),
-            2 => 
-            array (
-                'id' => 3,
-                'name' => 'Pintu A',
-                'email' => 'yahya@gmail.com',
-                'role' => 'super admin',
-                'email_verified_at' => NULL,
-                'password' => '$2y$12$fRUvwqO6JYGsKNHbq7HUCuUu0d/puqOpJVcL7Cx6F5ATogoJ4EUiS',
-                'tiket_id' => NULL,
-                'remember_token' => NULL,
-                'created_at' => '2024-07-09 17:10:26',
-                'updated_at' => '2024-07-09 17:11:03',
-            ),
         ));
         
         

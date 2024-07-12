@@ -7,22 +7,24 @@ import QRCode from 'qrcode.react'
 export default function Ticket({ tiket, qrCode, event }) {
   console.log({ tiket })
   console.log({ event })
-
-  localStorage.setItem('event_id', event.id);
+  console.log({ qrCode })
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${qrCode}&size=300x300`;
+  // localStorage.setItem('event_id', event.id);
 
   return (
     <div className="body">
       <div className="ticket created-by-anniedotexe flex">
         <div className="left flex-grow">
-        <div className="image" style={{ backgroundImage: `url(${event.img})` }}>
+          <div
+            className="image"
+            style={{ backgroundImage: `url(${event.img})` }}
+          >
             <p className="admit-one">
               <span>E-TIKET</span>
               <span>E-TIKET</span>
               <span>E-TIKET</span>
             </p>
-            <div className="ticket-number">
-              {/* <p>#20030220</p> */}
-            </div>
+            <div className="ticket-number">{/* <p>#20030220</p> */}</div>
           </div>
           <div className="ticket-info">
             <p className="date">
@@ -38,18 +40,18 @@ export default function Ticket({ tiket, qrCode, event }) {
             </div>
             <p className="location">
               <span>
-              <p className="flex items-center text-sm">
-                <HiCalendar className="mr-2 truncate text-nowrap" />{' '}
-                {format(new Date(event.date), 'EEEE, d MMMM yyyy')}
-              </p>
+                <p className="flex items-center text-sm">
+                  <HiCalendar className="mr-2 truncate text-nowrap" />{' '}
+                  {format(new Date(event.date), 'EEEE, d MMMM yyyy')}
+                </p>
               </span>
               <span className="separator">
                 <i className="far fa-smile"></i>
               </span>
               <span>
-              <p className="flex items-center">
-                <HiLocationMarker className="mr-2 truncate" /> {event.place}
-              </p>
+                <p className="flex items-center">
+                  <HiLocationMarker className="mr-2 truncate" /> {event.place}
+                </p>
               </span>
             </p>
           </div>
@@ -62,7 +64,8 @@ export default function Ticket({ tiket, qrCode, event }) {
           </p>
           <div className="right-info-container">
             <div className="barcode">
-              <QRCode value={qrCode} />
+              {/* <QRCode value={qrCode} /> */}
+              <img src={qrCodeUrl} alt="QR Code" title="QR Code" />
             </div>
             {/* <p className="ticket-number">#20030220</p> */}
           </div>

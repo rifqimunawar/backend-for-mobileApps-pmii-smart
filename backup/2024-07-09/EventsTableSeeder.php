@@ -60,17 +60,17 @@ Konser memiliki tujuan untuk menghibur penonton. Selain itu, konser juga dapat m
             2 => 
             array (
                 'id' => 3,
-                'title' => 'Konser A',
+                'title' => 'aaa',
                 'img' => 'event_1709767537.jpg',
                 'description' => 'dsfas',
                 'date' => '2024-03-01',
-                'time' => '11:33:00',
+                'time' => '11:30:00',
                 'place' => 'aaa',
                 'rp' => 25000,
                 'penyelenggara' => 'aaa',
                 'jumlah_tiket' => 11,
                 'created_at' => '2024-03-06 23:25:37',
-                'updated_at' => '2024-07-09 17:11:50',
+                'updated_at' => '2024-03-06 23:25:37',
             ),
         ));
         
