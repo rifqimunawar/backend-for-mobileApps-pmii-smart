@@ -28,9 +28,9 @@
                             <td class="">{{ $index->email }}</td>
                             <td class="text-center">
                                 @if ($index->status == 1)
-                                    <p class="btn btn-danger btn-sm">Belum discan</p>
-                                @else
                                     <p class="btn btn-info btn-sm"> Sudah discan</p>
+                                @else
+                                    <p class="btn btn-danger btn-sm">Belum discan</p>
                                 @endif
 
                             </td>
