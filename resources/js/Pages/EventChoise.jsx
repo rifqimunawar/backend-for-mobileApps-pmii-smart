@@ -19,22 +19,11 @@ export default function EventChoise({ eventChoise }) {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const localeventId = localStorage.getItem('event_id');
-    
-    // Memeriksa apakah localeventId tidak ada (null atau undefined)
-    if (!localeventId) {
-      post('/transaction/store');
-    } else if (localeventId.toString() === eventChoise.id.toString()) {
-      window.location.href = '/gagal'; // Arahkan ke halaman gagal jika event_id sama dengan eventChoise.id
-    } else {
-      // Jika localeventId ada, dan tidak sama dengan eventChoise.id, lanjutkan
-      post('/transaction/store');
-      // post('/event/store');
-    }
+    e.preventDefault()
+    const localeventId = localStorage.getItem('event_id')
+
+    post('/transaction/store')
   }
-  
-  
 
   return (
     <div>
@@ -105,7 +94,9 @@ export default function EventChoise({ eventChoise }) {
 
               <label className="block mb-3">
                 <span className="block font-semibold">Email Aktif</span>
-                <p className='italic color text-red-400'>tiket akan dikirim ke email anda</p>
+                <p className="italic color text-red-400">
+                  tiket akan dikirim ke email anda
+                </p>
                 <input
                   type="email"
                   id="email"
@@ -130,7 +121,7 @@ export default function EventChoise({ eventChoise }) {
           </div>
         </div>
       </div>
-      <FooterComponent/>
+      <FooterComponent />
     </div>
   )
 }
