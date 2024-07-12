@@ -130,7 +130,7 @@ class TiketController extends Controller
       'sender_name' => 'rifqimunawar48@gmail.com',
       'isi' => $pesan
     ];
-    // Mail::to($tiket->email)->send(new TiketEmail($data_email));
+    Mail::to($tiket->email)->send(new TiketEmail($data_email));
     return inertia('GetTiket', ['tiket' => $tiket, 'event' => $events, 'qrCode' => $qr_code]);
   }
 }

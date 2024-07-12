@@ -55,6 +55,7 @@ export default function Ticket({ tiket, qrCode, event }) {
               <span>E-TIKET</span>
               <span>E-TIKET</span>
             </p>
+
             <div className="ticket-number">{/* <p>#20030220</p> */}</div>
           </div>
           <div className="ticket-info">

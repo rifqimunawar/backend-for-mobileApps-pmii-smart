@@ -24,6 +24,7 @@
 
 </head>
 
+
 <body>
     <span class="loading loading-spinner loading-lg"></span>
     <a href="/event/checkout/{{ $qr_code }}"id="konfirmasi-button"> </a>

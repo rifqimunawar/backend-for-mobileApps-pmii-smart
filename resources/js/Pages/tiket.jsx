@@ -86,7 +86,7 @@ export default function Ticket({ tiket, qrCode, event }) {
             <div className="barcode">
               <QRCode value={qrCode} />
             </div>
-            {/* <p className="ticket-number">#20030220</p> */}
+            {/* <p className="ticket-number">#200302250</p> */}
           </div>
         </div>
       </div>
