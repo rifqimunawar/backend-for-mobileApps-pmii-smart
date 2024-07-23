@@ -82,7 +82,7 @@ class TiketController extends Controller
     $tiket->snap_token = $snapToken;
     $tiket->save();
 
-    return view ('frontend.konfirmasi', compact('qr_code'));
+    return view('frontend.konfirmasi', compact('qr_code'));
     // return redirect()->route('tiket.checkout', $qr_code);
   }
 
@@ -104,11 +104,11 @@ class TiketController extends Controller
     $tiket->statusPay = true;
 
     // Mengambil alamat IP pengguna
-    $ip_address_response = Http::get('https://api.ipify.org/');
-    $ip_address = $ip_address_response->body();
+    // $ip_address_response = Http::get('https://api.ipify.org/');
+    // $ip_address = $ip_address_response->body();
 
     // Memperbarui alamat IP tiket
-    $tiket->ip_address = $ip_address;
+    // $tiket->ip_address = $ip_address;
 
     $tiket->save();
 
